@@ -17,7 +17,7 @@ export function Category() {
                 alt="category"
               />
               <div className="card-text-overlay">
-                <div className="card-header-title bold-font-weight">
+                <div className="card-header-title category-style bold-font-weight">
                   {" "}
                   {category.categoryName}{" "}
                 </div>
