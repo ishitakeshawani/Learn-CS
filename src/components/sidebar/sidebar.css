@@ -1,7 +1,6 @@
 aside {
   border-right: 1px solid var(--light-gray);
   width: 15rem;
-  height: 100vh;
 }
 
 .sidebar {
@@ -15,6 +14,7 @@ aside {
 
 .sidebar-item {
   display: flex;
+  color: var(--black);
   align-items: center;
   justify-content: flex-start;
   text-align: left;
@@ -40,21 +40,7 @@ aside {
 
 @media only screen and (max-width: 56em) {
   aside {
-    width: 3rem;
-  }
-  .sidebar-item .span {
     display: none;
   }
-  .sidebar {
-    gap: 0.4rem;
-    margin: 0 0.3rem;
-  }
-  .sidebar-item > i {
-    font-size: 1rem;
-    padding: 0;
-  }
-  .sidebar-item:hover {
-    background: none;
-    color: var(--blue-color);
-  }
+  
 }
