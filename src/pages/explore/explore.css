@@ -1,5 +1,32 @@
-.explore{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.explore-page {
+  display: flex;
+}
+
+.category-filter-list {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  width: 70rem;
+}
+
+.category-item {
+  padding: 0.4rem 1rem;
+  height: 2.3rem;
+  border: 1px solid var(--blue-color);
+  border-radius: 18px;
+  overflow: hidden;
+  color: var(--blue-color);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.category-item:hover {
+  background-color: var(--blue-color);
+  color: var(--white);
+}
+
+.video-section {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
 }

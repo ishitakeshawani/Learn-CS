@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid";
-import categoryimage from "../../assets/Images/background.webp"
+
 /**
  * Category Database can be added here.
  * You can add category of your wish with different attributes
@@ -8,22 +8,20 @@ import categoryimage from "../../assets/Images/background.webp"
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Operating System",
-    image: categoryimage
+    categoryName: "Operating system",
+    image:
+      "https://media.istockphoto.com/photos/abstract-circular-particles-background-picture-id1079645426?b=1&k=20&m=1079645426&s=170667a&w=0&h=AxkETcLGWMDlcU-FayHcJKAFm3DZdYOaOsYsVAe06Cs=",
   },
   {
     _id: uuid(),
-    categoryName: "Data Structures and Algorithms",
-    image: categoryimage
+    categoryName: "Computer Networks",
+    image:
+      "https://media.istockphoto.com/photos/abstract-circular-particles-background-picture-id1079645426?b=1&k=20&m=1079645426&s=170667a&w=0&h=AxkETcLGWMDlcU-FayHcJKAFm3DZdYOaOsYsVAe06Cs=",
   },
   {
     _id: uuid(),
-    categoryName: "Computer Network",
-    image: categoryimage
+    categoryName: "Data structures and algorithms",
+    image:
+      "https://media.istockphoto.com/photos/abstract-circular-particles-background-picture-id1079645426?b=1&k=20&m=1079645426&s=170667a&w=0&h=AxkETcLGWMDlcU-FayHcJKAFm3DZdYOaOsYsVAe06Cs=",
   },
-  {
-    _id: uuid(),
-    categoryName: "DBMS",
-    image: categoryimage
-  }
 ];
