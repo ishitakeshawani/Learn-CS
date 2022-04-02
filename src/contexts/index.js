@@ -1,1 +1,1 @@
-export { VideoProvider } from "./VideoProvider";
+export { VideoProvider,useVideo } from "./VideoProvider";
