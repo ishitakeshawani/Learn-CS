@@ -28,6 +28,11 @@
   padding: 5rem 1rem;
 }
 
+.category-style {
+  color: white !important;
+  font-size: 1.3rem !important;
+}
+
 @media only screen and (max-width: 56em) {
   .category-title {
     font-size: 1.5rem;
