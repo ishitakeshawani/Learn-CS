@@ -14,11 +14,11 @@ export function Navbar() {
       <div className="openMenu">
         <i className="fa fa-bars" onClick={showMenu}></i>
       </div>
-      <a className="nav-icon-link nav-link link-no-style hide-icon" href="">
+      <a className="nav-icon-link nav-link link-no-style hide-icon" href="/">
         &lt;Learn CS /&gt;
       </a>
 
-      <a className="nav-link link-no-style nav-home" href="">
+      <a className="nav-link link-no-style nav-home" href="/">
         Home
       </a>
       <a
