@@ -54,7 +54,7 @@ export const videos = [
   },
   {
     _id: "oOaQVvNK4EU",
-    title: "Data Structures Easy to Advanced Course",
+    title: "Data Structures Course",
     views: "4.1M",
     duration: "8:03:17",
     name: "freeCodeCamp.org",
