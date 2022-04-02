@@ -13,6 +13,7 @@
   --light-blue: #a1c4e7;
   --gray: #9a9a9a;
   --explore-bg-color: #FDFCFC;
+  --model-bg-color: rgba(0,0,0,0.4);
 }
 
 body{
