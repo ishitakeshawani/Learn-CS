@@ -19,7 +19,7 @@ export function CategoryCard({ category }) {
           <img className="card-img" src={category.image} alt="category" />
         </Link>
         <div className="card-text-overlay">
-          <div className="card-header-title bold-font-weight">
+          <div className="card-header-title bold-font-weight category-style ">
             {" "}
             {category.categoryName}{" "}
           </div>
