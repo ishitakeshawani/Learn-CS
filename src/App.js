@@ -1,7 +1,7 @@
 import { Routes,Route } from "react-router-dom";
 import "./App.css";
 import { Navbar } from "./components";
-import { HomePage, Explore, PlayLists } from "./pages";
+import { HomePage, Explore, PlayLists, Login } from "./pages";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/playlists" element={<PlayLists />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
