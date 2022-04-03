@@ -24,3 +24,10 @@
 .card-header {
   cursor: default;
 }
+
+.save-to-icon{
+  font-size: 1.4rem;
+  color: var(--black);
+  margin-left: auto;
+  cursor: pointer;
+}

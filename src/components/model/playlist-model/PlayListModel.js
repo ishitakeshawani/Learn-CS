@@ -7,9 +7,7 @@ export function PlayListModel({ setShowModel }) {
       <div className="playlist-model-content">
         <div className="model-header">
           <div className="model-header-name">Create New Playlist</div>
-          <div className="model-cancel-btn" onClick={() => setShowModel(false)}>
-            x
-          </div>
+          <i class="fas fa-times model-cancel-btn" onClick={() => setShowModel(false)}></i>
         </div>
         <div className="model-last-section">
           <label htmlFor="name" className="playlist-name">
