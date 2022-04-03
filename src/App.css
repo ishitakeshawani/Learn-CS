@@ -16,6 +16,7 @@
   --model-bg-color: rgba(0, 0, 0, 0.4);
   --login-bg-color: #f3f3f3;
   --border-color: #767676;
+  --box-shadow: 0px 2px 3px 0 rgb(0 0 0 / 10%);
 }
 
 body {

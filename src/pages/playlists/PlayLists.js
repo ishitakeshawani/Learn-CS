@@ -1,10 +1,12 @@
 import { React, useState } from "react";
-import { PlayListModel } from "../../components";
+import { PlayListCard, PlayListModel } from "../../components";
+import { usePlayList } from "../../contexts";
 import "./playlists.css";
 
 export function PlayLists() {
   const [showModel, setShowModel] = useState(false);
-  console.log(showModel);
+  const { playListState } = usePlayList();
+  const playLists = playListState.playLists;
   return (
     <div>
       <div className="playlists-section">
@@ -16,6 +18,12 @@ export function PlayLists() {
           >
             Create New Playlist
           </button>
+        </div>
+        {console.log(playLists)}
+        {console.log(playListState.playLists)}
+        <div className="playLists">
+          {playLists.length > 0 &&
+            playLists.map((playlist) => <PlayListCard playlist={playlist} />)}
         </div>
         {showModel && <PlayListModel setShowModel={setShowModel} />}
       </div>

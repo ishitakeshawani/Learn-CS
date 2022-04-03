@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./login.css";
+import { usePlayList } from "../../contexts";
 
 export function Login() {
   const [userData, setUserData] = useState({
@@ -9,16 +10,20 @@ export function Login() {
     password: "",
   });
   let navigate = useNavigate();
-
+  const { playListDispatch } = usePlayList();
 
   const onSubmitHandler = async () => {
     try {
       const value = await axios.post("/api/auth/login", userData);
-      console.log(value.data);
+      console.log(value.data.foundUser.playlists);
       localStorage.setItem("token", value.data.encodedToken);
       setUserData({
         email: "",
         password: "",
+      });
+      playListDispatch({
+        type: "INITIALIZE_PLAYLISTS",
+        payload: value.data.foundUser.playlists
       });
       navigate("/");
     } catch (e) {
@@ -76,7 +81,7 @@ export function Login() {
             </label>
           </div>
           <div className="forgot-password semibold-font-weight">
-            Forgot your password? 
+            Forgot your password?
           </div>
         </div>
         <button

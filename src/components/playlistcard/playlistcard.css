@@ -1,0 +1,26 @@
+.playlistcard{
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playlistname{
+    font-size: 1.2rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.playlist-videos{
+    font-size: 0.9rem;
+    color: var(--blue-color);
+}
+
+.playlist-delete-icon{
+    font-size: 1.1rem;
+    cursor: pointer;
+}
