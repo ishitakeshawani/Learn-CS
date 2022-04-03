@@ -28,7 +28,6 @@ function VideoProvider({ children }) {
         console.log(error);
       }
     })();
-    fetch();
   }, []);
 
   const [videoState, videoDispatch] = useReducer(videoReducer, initialState);

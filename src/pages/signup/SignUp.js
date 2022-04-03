@@ -3,7 +3,7 @@ import "./signup.css";
 import "../login/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { usePlayList } from "../../contexts";
 
 export function SignUp() {
   const [userData, setUserData] = useState({
@@ -14,11 +14,12 @@ export function SignUp() {
     lastName: "",
   });
   let navigate = useNavigate();
+  const { playListDispatch } = usePlayList();
 
   const onHandleSubmit = async () => {
     try {
       const value = await axios.post("/api/auth/signup", userData);
-
+      console.log(value.data.createdUser.playlists);
       localStorage.setItem("token", value.data.encodedToken);
       setUserData({
         email: "",
@@ -27,6 +28,11 @@ export function SignUp() {
         firstName: "",
         lastName: "",
       });
+      playListDispatch({
+        type: "INITIALIZE_PLAYLISTS",
+        payload: value.data.createdUser.playlists
+      });
+
       navigate("/");
     } catch (e) {
       console.log("error", e);
