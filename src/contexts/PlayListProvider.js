@@ -1,12 +1,4 @@
-import axios from "axios";
-import {
-  useReducer,
-  useState,
-  useEffect,
-  useContext,
-  createContext,
-  React,
-} from "react";
+import { useReducer, useContext, createContext, React } from "react";
 import { playListReducer } from "../reducers";
 
 const PlayListContext = createContext();

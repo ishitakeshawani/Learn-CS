@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { useParams } from "react-router";
 import { usePlayList } from "../../contexts";
 import "./playlist.css";
@@ -18,10 +18,9 @@ export function PlayList() {
         <button
           className="btn delete-playlist-btn"
           onClick={() => {
-            deletePlayList(playListId.playListId, playListDispatch)
-            navigate("/playlists")
-          }
-          }
+            deletePlayList(playListId.playListId, playListDispatch);
+            navigate("/playlists");
+          }}
         >
           Delete this Playlist
         </button>
@@ -45,7 +44,16 @@ export function PlayList() {
                       <p>{video.views} views</p>
                       <p>•</p>
                       <p>{video.duration}</p>
-                      <i class="fas fa-trash delete-to-icon" onClick={() => removeVideoFromPlayList(playListId.playListId,video._id,playListDispatch)}></i>
+                      <i
+                        class="fas fa-trash delete-to-icon"
+                        onClick={() =>
+                          removeVideoFromPlayList(
+                            playListId.playListId,
+                            video._id,
+                            playListDispatch
+                          )
+                        }
+                      ></i>
                       <button className="no-style-btn">Watch Later</button>
                     </div>
                   </div>

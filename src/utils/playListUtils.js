@@ -1,5 +1,4 @@
 import axios from "axios";
-import { async } from "q";
 
 export const addNewPlayList = async (playListName, playListDispatch) => {
   try {
@@ -28,9 +27,7 @@ export const addNewPlayList = async (playListName, playListDispatch) => {
 
 export const deletePlayList = async (playListId, playListDispatch) => {
   try {
-    const {
-      data: { playlists },
-    } = await axios.delete(`/api/user/playlists/${playListId}`, {
+    await axios.delete(`/api/user/playlists/${playListId}`, {
       headers: { authorization: localStorage.getItem("token") },
     });
     playListDispatch({
@@ -78,19 +75,18 @@ export const addVideoToPlayList = async (
 export const removeVideoFromPlayList = async (
   playlistId,
   videoId,
-  playListDispatch,
+  playListDispatch
 ) => {
   try {
     const {
       data: { playlist },
-    } =  await axios.delete(`/api/user/playlists/${playlistId}/${videoId}`, {
+    } = await axios.delete(`/api/user/playlists/${playlistId}/${videoId}`, {
       headers: { authorization: localStorage.getItem("token") },
     });
-    playListDispatch
-    ({
+    playListDispatch({
       type: "REMOVE_video_from_playlist",
-      payload: {playlistId,videoId}
-    })
+      payload: { playlistId, videoId },
+    });
     console.log(playlist);
   } catch (e) {
     console.log(e);

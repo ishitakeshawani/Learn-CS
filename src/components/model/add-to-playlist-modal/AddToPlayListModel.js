@@ -1,8 +1,7 @@
-import { React, useEffect } from "react";
+import { React } from "react";
 import { usePlayList } from "../../../contexts/PlayListProvider";
 import { addVideoToPlayList, removeVideoFromPlayList } from "../../../utils";
 import "./addtoplaylistmodel.css";
-import axios from "axios";
 
 export function AddToPlayListModel({ setShowModal, videoId, video }) {
   const { playListState, playListDispatch } = usePlayList();
