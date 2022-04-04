@@ -1,0 +1,34 @@
+.playlist {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 4rem;
+}
+
+.playlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.playlist-header-name {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.delete-playlist-btn {
+  background-color: var(--blue-color);
+  margin-left: auto;
+}
+
+.playlist-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin: 0 5rem;
+}
+
+.delete-to-icon{
+    margin-left: auto;
+}

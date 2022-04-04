@@ -33,43 +33,34 @@ export function AddToPlayListModel({ setShowModal, videoId, video }) {
           {playLists.length > 0 &&
             playLists.map((playlist) => (
               <div>
-                <input
-                  type="checkbox"
-                  id={playlist._id}
-                  // checked={}
-                  onChange={(e) =>
-                    // console.log(isVideoExistInPlayList(videoId,playlist))
-                    !isVideoExistInPlayList(videoId, playlist)
-                      ? addVideoToPlayList(
-                          playlist._id,
-                          playlist,
-                          playListDispatch,
-                          video,
-                          playLists
-                        )
-                      : removeVideoFromPlayList(
-                          playlist._id,
-                          videoId,
-                          playListDispatch
-                        )
-                  }
-                />
                 <label
                   // id={playlist._id}
                   key={playlist._id}
                   htmlFor=""
                   className="add-playlist-model-list-item"
                 >
-                  {/* <input
-                  type="checkbox"
-                  id={playlist._id}
-                  checked={isVideoExistInPlayList(videoId, playlist) ?? false}
-                  onChange={() =>
-                    !isVideoExistInPlayList(videoId, playlist)
-                      ? addVideoToPlayList(playlist._id, playlist, playListDispatch,video,playLists)
-                      : console.log("no")
-                  }
-                /> */}
+                  <input
+                    type="checkbox"
+                    id={playlist._id}
+                    // checked={}
+                    onChange={(e) =>
+                      // console.log(isVideoExistInPlayList(videoId,playlist))
+                      !isVideoExistInPlayList(videoId, playlist)
+                        ? addVideoToPlayList(
+                            playlist._id,
+                            playlist,
+                            playListDispatch,
+                            video,
+                            playLists
+                          )
+                        : removeVideoFromPlayList(
+                            playlist._id,
+                            videoId,
+                            playListDispatch
+                          )
+                    }
+                  />
+
                   {playlist.title}
                 </label>
               </div>

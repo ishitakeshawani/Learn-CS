@@ -13,6 +13,7 @@
     font-size: 1.2rem;
     font-weight: 400;
     cursor: pointer;
+    color: var(--black);
 }
 
 .playlist-videos{
@@ -23,4 +24,13 @@
 .playlist-delete-icon{
     font-size: 1.1rem;
     cursor: pointer;
+    color: var(--black);
+    margin: 0 1rem;
+}
+
+.playlist-view-icon{
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--black);
+    margin-left: auto;
 }
