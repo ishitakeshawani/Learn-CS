@@ -9,7 +9,6 @@ export function Explore() {
   const videosData = videoState.videos;
   const videos = getVideosByCategory(videosData, videoState.selectedCategory);
   const categories = videoState.categories;
-  console.log(videoState.selectedCategory);
 
   return (
     <div className="explore-page">
@@ -18,7 +17,9 @@ export function Explore() {
         <div className="category-filter-list">
           <div
             className={`category-item ${
-              videoState.selectedCategory === "All" ? "active-category-item" : ""
+              videoState.selectedCategory === "All"
+                ? "active-category-item"
+                : ""
             } `}
             onClick={() =>
               videoDispatch({
