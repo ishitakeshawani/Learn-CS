@@ -19,8 +19,8 @@ export function PlayLists() {
             Create New Playlist
           </button>
         </div>
-        {console.log(playLists)}
-        {console.log(playListState.playLists)}
+        {console.log(playLists,"j")}
+        {console.log(playListState.playLists,"k")}
         <div className="playLists">
           {playLists.length > 0 &&
             playLists.map((playlist) => <PlayListCard playlist={playlist} />)}
