@@ -1,0 +1,26 @@
+.card {
+  border: 1px solid var(--light-gray);
+}
+
+.card-header-title {
+  color: var(--black);
+  font-size: 1.1rem;
+}
+
+.views-time {
+  display: flex;
+  gap: 0.4rem;
+  color: var(--black);
+}
+
+.no-style-btn {
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.card-header {
+  cursor: default;
+}

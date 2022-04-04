@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./homepage.css";
-import { Category,Footer } from "../../components";
+import { Category, Footer } from "../../components";
 
 export function HomePage() {
   return (
@@ -8,7 +9,9 @@ export function HomePage() {
       <div className="banner">
         <div className="banner-text">
           <div>Learn Computer Science</div>
-          <button className="btn watch-btn">Watch Now</button>
+          <Link to="/explore">
+            <button className="btn watch-btn">Watch Now</button>
+          </Link>
         </div>
       </div>
       <Category />
