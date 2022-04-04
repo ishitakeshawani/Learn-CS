@@ -24,7 +24,7 @@ export function PlayLists() {
         console.log(error);
       }
     })();
-  }, []);
+  }, [playListDispatch]);
  
 
   return (
