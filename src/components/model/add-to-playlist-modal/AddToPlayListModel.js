@@ -1,10 +1,16 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { usePlayList } from "../../../contexts/PlayListProvider";
+import { addVideoToPlayList, removeVideoFromPlayList } from "../../../utils";
 import "./addtoplaylistmodel.css";
+import axios from "axios";
 
-export function AddToPlayListModel({ setShowModal }) {
-  const { playListState } = usePlayList();
+export function AddToPlayListModel({ setShowModal, videoId, video }) {
+  const { playListState, playListDispatch } = usePlayList();
   const playLists = playListState.playLists;
+  const isVideoExistInPlayList = (videoID, playlist) => {
+    return playlist.videos.some(({ _id }) => _id === videoID);
+  };
+
   return (
     <div className="add-playlist-model">
       <div className="add-playlist-model-content">
@@ -26,10 +32,47 @@ export function AddToPlayListModel({ setShowModal }) {
           </label>
           {playLists.length > 0 &&
             playLists.map((playlist) => (
-              <label htmlFor="" className="add-playlist-model-list-item">
-                <input type="checkbox" />
-                {playlist.title}
-              </label>
+              <div>
+                <input
+                  type="checkbox"
+                  id={playlist._id}
+                  // checked={}
+                  onChange={(e) =>
+                    // console.log(isVideoExistInPlayList(videoId,playlist))
+                    !isVideoExistInPlayList(videoId, playlist)
+                      ? addVideoToPlayList(
+                          playlist._id,
+                          playlist,
+                          playListDispatch,
+                          video,
+                          playLists
+                        )
+                      : removeVideoFromPlayList(
+                          playlist._id,
+                          videoId,
+                          playListDispatch
+                        )
+                  }
+                />
+                <label
+                  // id={playlist._id}
+                  key={playlist._id}
+                  htmlFor=""
+                  className="add-playlist-model-list-item"
+                >
+                  {/* <input
+                  type="checkbox"
+                  id={playlist._id}
+                  checked={isVideoExistInPlayList(videoId, playlist) ?? false}
+                  onChange={() =>
+                    !isVideoExistInPlayList(videoId, playlist)
+                      ? addVideoToPlayList(playlist._id, playlist, playListDispatch,video,playLists)
+                      : console.log("no")
+                  }
+                /> */}
+                  {playlist.title}
+                </label>
+              </div>
             ))}
         </div>
       </div>

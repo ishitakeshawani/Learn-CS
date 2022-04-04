@@ -1,12 +1,32 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { PlayListCard, PlayListModel } from "../../components";
 import { usePlayList } from "../../contexts";
 import "./playlists.css";
+import axios from "axios";
 
 export function PlayLists() {
   const [showModel, setShowModel] = useState(false);
-  const { playListState } = usePlayList();
+  const { playListState, playListDispatch } = usePlayList();
   const playLists = playListState.playLists;
+ 
+  useEffect(() => {
+    (async () => {
+      try {
+        const {
+          data: { playlists },
+        } = await axios.get("/api/user/playlists", {
+          headers: { authorization: localStorage.getItem("token") },
+        });
+
+        playListDispatch({ type: "INITIALIZE_PLAYLISTS", payload: playlists });
+        console.log(playlists);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+ 
+
   return (
     <div>
       <div className="playlists-section">
@@ -19,8 +39,6 @@ export function PlayLists() {
             Create New Playlist
           </button>
         </div>
-        {console.log(playLists,"j")}
-        {console.log(playListState.playLists,"k")}
         <div className="playLists">
           {playLists.length > 0 &&
             playLists.map((playlist) => <PlayListCard playlist={playlist} />)}
