@@ -18,11 +18,36 @@ export const playListReducer = (playListState, { type, payload }) => {
           },
         ],
       };
-
+    case "ADD_VIDEO_TO_PLAYLIST":
+      return {
+        ...playListState,
+        playLists: playListState.playLists.map((playlist) =>
+          playlist._id === payload.playlistId
+            ? {
+                ...playlist,
+                videos: playlist.videos.concat(payload.video),
+              }
+            : playlist
+        ),
+      };
     case "DELETE_PLAYLIST":
       return {
         ...playListState,
         playLists: playListState.playLists.filter(({ _id }) => _id !== payload),
+      };
+    case "REMOVE_video_from_playlist":
+      return {
+        ...playListState,
+        playLists: playListState.playLists.map((playlist) =>
+          playlist._id === payload.playlistId
+            ? {
+                ...playlist,
+                videos: playlist.videos.filter(
+                  ({ _id }) => _id !== payload.videoId
+                ),
+              }
+            : playlist
+        ),
       };
 
     default:

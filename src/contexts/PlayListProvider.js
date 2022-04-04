@@ -19,6 +19,7 @@ const PlayListProvider = ({ children }) => {
     playListReducer,
     initialState
   );
+
   return (
     <PlayListContext.Provider value={{ playListState, playListDispatch }}>
       {children}

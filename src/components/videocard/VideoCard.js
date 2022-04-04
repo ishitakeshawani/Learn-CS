@@ -24,7 +24,7 @@ export function VideoCard({ video }) {
             ></i>
             <button className="no-style-btn">Watch Later</button>
           </div>
-          {showModal && <AddToPlayListModel setShowModal={setShowModal} />}
+          {showModal && <AddToPlayListModel setShowModal={setShowModal} videoId={video._id} video={video} />}
         </div>
       </div>
     </div>

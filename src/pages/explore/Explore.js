@@ -10,7 +10,6 @@ export function Explore() {
   const videos = getVideosByCategory(videosData, videoState.selectedCategory);
   const categories = videoState.categories;
   console.log(videoState.selectedCategory);
-
   return (
     <div className="explore-page">
       <SideBar />
