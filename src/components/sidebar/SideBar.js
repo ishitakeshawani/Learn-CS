@@ -11,7 +11,7 @@ export function SideBar() {
           <span>Home</span>
         </NavLink>
         <NavLink className="link-no-style sidebar-item" to="/explore">
-          <i class="fa-solid fa-play"></i>
+        <i class="fas fa-video"></i>
           <span>Explore</span>
         </NavLink>
         <NavLink className="link-no-style sidebar-item" to="/playlists">
