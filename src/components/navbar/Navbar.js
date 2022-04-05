@@ -27,7 +27,7 @@ export function Navbar() {
       </Link>
 
       <div className={isMenuShow ? "mainMenuShow" : "mainMenu"}>
-        <Link to="/" className="link-no-style nav-link">
+        <Link to="/login" className="link-no-style nav-link">
           Login
         </Link>
 

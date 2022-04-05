@@ -1,0 +1,26 @@
+.playlists-section {
+  display: flex;
+  flex-direction: column;
+  margin: 2.5rem;
+}
+
+.playlists-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-name {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.playlist-btn {
+  background-color: var(--blue-color);
+}
+
+.playLists{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin: 1rem 0;
+}

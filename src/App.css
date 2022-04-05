@@ -1,20 +1,24 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   overflow-x: hidden;
 }
 
-:root{
-  --white: #FFFFFF;
+:root {
+  --white: #ffffff;
   --black: #000000;
-  --blue-color: #1E80E1;
+  --blue-color: #1e80e1;
   --light-gray: #e5e5e5;
   --light-blue: #a1c4e7;
   --gray: #9a9a9a;
-  --explore-bg-color: #FDFCFC;
+  --explore-bg-color: #fdfcfc;
+  --model-bg-color: rgba(0, 0, 0, 0.4);
+  --login-bg-color: #f3f3f3;
+  --border-color: #767676;
+  --box-shadow: 0px 2px 3px 0 rgb(0 0 0 / 10%);
 }
 
-body{
+body {
   background-color: var(--white);
 }
