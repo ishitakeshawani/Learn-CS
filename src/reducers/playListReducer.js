@@ -19,10 +19,11 @@ export const playListReducer = (playListState, { type, payload }) => {
         ],
       };
     case "ADD_VIDEO_TO_PLAYLIST":
+      console.log(payload.video)
       return {
         ...playListState,
         playLists: playListState.playLists.map((playlist) =>
-          playlist._id === payload.playlistId
+          playlist._id === payload.playlistID
             ? {
                 ...playlist,
                 videos: playlist.videos.concat(payload.video),

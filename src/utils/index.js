@@ -6,3 +6,4 @@ export { removeVideoFromPlayList } from "./playListUtils";
 export { addToLikedVideos } from "./videoUtils";
 export { IsVideoAlreadyLiked } from "./videoUtils";
 export { RemoveFromLikedVideos } from "./videoUtils";
+export { isVideoExistInPlayList } from "./playListUtils";

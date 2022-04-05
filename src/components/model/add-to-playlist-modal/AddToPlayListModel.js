@@ -1,13 +1,28 @@
 import { React } from "react";
 import { usePlayList } from "../../../contexts/PlayListProvider";
-import { addVideoToPlayList, removeVideoFromPlayList } from "../../../utils";
+import {
+  removeVideoFromPlayList,
+  isVideoExistInPlayList,
+  addVideoToPlayList,
+} from "../../../utils";
 import "./addtoplaylistmodel.css";
+import axios from "axios";
 
 export function AddToPlayListModel({ setShowModal, videoId, video }) {
   const { playListState, playListDispatch } = usePlayList();
   const playLists = playListState.playLists;
-  const isVideoExistInPlayList = (videoID, playlist) => {
-    return playlist.videos.some(({ _id }) => _id === videoID);
+  const playlistHandler = (videoID, playlistID, playLists, playlist) => {
+    if (!isVideoExistInPlayList(videoId, playlistID, playLists)) {
+      addVideoToPlayList(
+        playlistID,
+        playlist,
+        playListDispatch,
+        video,
+        playLists
+      );
+    } else {
+      removeVideoFromPlayList(playlistID, videoId, playListDispatch);
+    }
   };
 
   return (
@@ -21,35 +36,29 @@ export function AddToPlayListModel({ setShowModal, videoId, video }) {
           ></i>
         </div>
         <div className="add-playlist-model-list">
-         
           {playLists.length > 0 &&
             playLists.map((playlist) => (
               <div>
                 <label
-                  // id={playlist._id}
                   key={playlist._id}
                   htmlFor=""
                   className="add-playlist-model-list-item"
                 >
                   <input
                     type="checkbox"
-                    id={playlist._id}
-                    // checked={}
-                    onChange={(e) =>
+                    checked={isVideoExistInPlayList(
+                      videoId,
+                      playlist._id,
+                      playLists
+                    )}
+                    onChange={() =>
                       // console.log(isVideoExistInPlayList(videoId,playlist))
-                      !isVideoExistInPlayList(videoId, playlist)
-                        ? addVideoToPlayList(
-                            playlist._id,
-                            playlist,
-                            playListDispatch,
-                            video,
-                            playLists
-                          )
-                        : removeVideoFromPlayList(
-                            playlist._id,
-                            videoId,
-                            playListDispatch
-                          )
+                      playlistHandler(
+                        videoId,
+                        playlist._id,
+                        playLists,
+                        playlist
+                      )
                     }
                   />
 

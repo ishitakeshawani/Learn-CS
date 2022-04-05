@@ -19,7 +19,6 @@ export const addNewPlayList = async (playListName, playListDispatch) => {
       type: "INITIALIZE_PLAYLISTS",
       payload: playlists,
     });
-    console.log(playlists);
   } catch (error) {
     console.log(error);
   }
@@ -39,38 +38,7 @@ export const deletePlayList = async (playListId, playListDispatch) => {
   }
 };
 
-export const addVideoToPlayList = async (
-  playlistID,
-  playlist,
-  playListDispatch,
-  video,
-  playLists
-) => {
-  console.log(video, playlistID, playLists);
-  try {
-    const {
-      data: { playlist },
-    } = await axios.post(
-      `/api/user/playlists/${playlistID}`,
-      {
-        video,
-      },
-      {
-        headers: {
-          authorization: localStorage.getItem("token"),
-        },
-      }
-    );
-    playListDispatch({
-      type: "ADD_VIDEO_TO_PLAYLIST",
-      payload: { video, playlistID },
-    });
 
-    console.log(playlist);
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 export const removeVideoFromPlayList = async (
   playlistId,
@@ -87,8 +55,43 @@ export const removeVideoFromPlayList = async (
       type: "REMOVE_video_from_playlist",
       payload: { playlistId, videoId },
     });
-    console.log(playlist);
   } catch (e) {
     console.log(e);
   }
+};
+
+export const addVideoToPlayList = async (
+  playlistID,
+  playlist,
+  playListDispatch,
+  video,
+  playLists
+) => {
+  try {
+    const {
+      data: { playlist },
+    } = await axios.post(
+      `/api/user/playlists/${playlistID}`,
+      {
+        video,
+      },
+      {
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+      }
+    );
+  playListDispatch({
+    type: "ADD_VIDEO_TO_PLAYLIST",
+    payload: {video,playlistID}
+  })
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const isVideoExistInPlayList = (videoID, playlistID, playLists) => {
+  return playLists
+    .find(({ _id }) => _id === playlistID)
+    .videos.some(({ _id }) => _id === videoID);
 };
