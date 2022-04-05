@@ -5,6 +5,9 @@ import {
   addToLikedVideos,
   IsVideoAlreadyLiked,
   RemoveFromLikedVideos,
+  addToWatchLater,
+  IsVideoAlreadyInWatchLater,
+  removeFromWatchLater,
 } from "../../utils";
 import { usePlayList } from "../../contexts/PlayListProvider";
 
@@ -12,12 +15,21 @@ export function VideoCard({ video }) {
   const [showModal, setShowModal] = useState(false);
   const { playListDispatch, playListState } = usePlayList();
   const _likedVideos = playListState.likedVideos;
+  const watchLaterVideos = playListState.watchLaterVideos;
 
   const likedHandler = (videoId, _likedVideos) => {
     if (IsVideoAlreadyLiked(videoId, _likedVideos)) {
       RemoveFromLikedVideos(videoId, playListDispatch);
     } else {
       addToLikedVideos(video, playListDispatch);
+    }
+  };
+
+  const watchLaterHandler = (videoID, watchLaterVideos) => {
+    if (IsVideoAlreadyInWatchLater(videoID, watchLaterVideos)) {
+      removeFromWatchLater(videoID, playListDispatch);
+    } else {
+      addToWatchLater(video, playListDispatch);
     }
   };
   return (
@@ -46,7 +58,14 @@ export function VideoCard({ video }) {
               className="fa-regular fa-save save-to-icon"
               onClick={() => setShowModal(true)}
             ></i>
-            <button className="no-style-btn">Watch Later</button>
+            <i
+              className={`${
+                IsVideoAlreadyInWatchLater(video._id, watchLaterVideos)
+                  ? "fas fa-clock save-to-icon"
+                  : "fa-regular fa-clock save-to-icon"
+              }`}
+              onClick={() => watchLaterHandler(video._id, watchLaterVideos)}
+            ></i>
           </div>
           {showModal && (
             <AddToPlayListModel
