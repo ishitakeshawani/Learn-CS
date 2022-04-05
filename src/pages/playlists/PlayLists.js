@@ -8,23 +8,24 @@ export function PlayLists() {
   const [showModel, setShowModel] = useState(false);
   const { playListState, playListDispatch } = usePlayList();
   const playLists = playListState.playLists;
+  console.log(playLists)
  
-  useEffect(() => {
-    (async () => {
-      try {
-        const {
-          data: { playlists },
-        } = await axios.get("/api/user/playlists", {
-          headers: { authorization: localStorage.getItem("token") },
-        });
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const {
+  //         data: { playlists },
+  //       } = await axios.get("/api/user/playlists", {
+  //         headers: { authorization: localStorage.getItem("token") },
+  //       });
 
-        playListDispatch({ type: "INITIALIZE_PLAYLISTS", payload: playlists });
-        console.log(playlists);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, [playListDispatch]);
+  //       playListDispatch({ type: "INITIALIZE_PLAYLISTS", payload: playlists });
+  //       console.log(playlists);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   })();
+  // }, [playListDispatch]);
  
 
   return (
