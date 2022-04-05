@@ -41,9 +41,7 @@ export function AddToPlayListModel({ setShowModal, videoId, video }) {
                   <input
                     type="checkbox"
                     id={playlist._id}
-                    // checked={}
                     onChange={(e) =>
-                      // console.log(isVideoExistInPlayList(videoId,playlist))
                       !isVideoExistInPlayList(videoId, playlist)
                         ? addVideoToPlayList(
                             playlist._id,

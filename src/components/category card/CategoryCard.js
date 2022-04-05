@@ -20,8 +20,7 @@ export function CategoryCard({ category }) {
         </Link>
         <div className="card-text-overlay">
           <div className="card-header-title bold-font-weight category-style ">
-            {" "}
-            {category.categoryName}{" "}
+            {category.categoryName}
           </div>
         </div>
       </div>
