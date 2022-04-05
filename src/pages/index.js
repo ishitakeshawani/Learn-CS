@@ -4,3 +4,4 @@ export { PlayLists } from "./playlists/PlayLists";
 export { Login } from "./login/Login";
 export { SignUp } from "./signup/SignUp";
 export { PlayList } from "./playlist/PlayList"
+export { LikedVideos } from "./likedvideos/LikedVideos";

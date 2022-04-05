@@ -22,7 +22,7 @@ export function SideBar() {
           <i class="fa-solid fa-clock"></i>
           <span>Watch later</span>
         </NavLink>
-        <NavLink className="link-no-style sidebar-item" to="/">
+        <NavLink className="link-no-style sidebar-item" to="/likedvideos">
           <i class="fa-solid fa-thumbs-up"></i>
           <span>Liked videos</span>
         </NavLink>
