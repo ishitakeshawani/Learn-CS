@@ -21,14 +21,7 @@ export function AddToPlayListModel({ setShowModal, videoId, video }) {
           ></i>
         </div>
         <div className="add-playlist-model-list">
-          <label htmlFor="" className="add-playlist-model-list-item">
-            <input type="checkbox" />
-            Watch Later
-          </label>
-          <label htmlFor="" className="add-playlist-model-list-item">
-            <input type="checkbox" />
-            Liked Videos
-          </label>
+         
           {playLists.length > 0 &&
             playLists.map((playlist) => (
               <div>
