@@ -19,7 +19,7 @@ export const addToLikedVideos = async (video, playListDispatch) => {
         headers: { authorization: localStorage.getItem("token") },
       }
     );
-    console.log(likes);
+
     playListDispatch({
       type: "ADD_TO_LIKED_VIDEOS",
       payload: likes,
@@ -30,24 +30,22 @@ export const addToLikedVideos = async (video, playListDispatch) => {
 };
 
 export const IsVideoAlreadyLiked = (videoId, _likedVideos) => {
-  console.log(_likedVideos);
   return _likedVideos ? _likedVideos.some(({ _id }) => _id === videoId) : false;
 };
 
-export const RemoveFromLikedVideos = async (videoId,playListDispatch) => {
-  console.log(videoId)
+export const RemoveFromLikedVideos = async (videoId, playListDispatch) => {
   try {
     const {
       data: { likes },
     } = await axios.delete(`/api/user/likes/${videoId}`, {
       headers: { authorization: localStorage.getItem("token") },
     });
-    console.log(likes);
+
     playListDispatch({
       type: "REMOVE_FROM_LIKED_VIDEOS",
-      payload: likes
-    })
+      payload: likes,
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
