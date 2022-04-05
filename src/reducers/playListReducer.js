@@ -60,6 +60,16 @@ export const playListReducer = (playListState, { type, payload }) => {
         ...playListState,
         likedVideos: payload
       }
+    case "ADD_TO_WATCH_LATER":
+      return {
+        ...playListState,
+        watchLaterVideos: payload
+      }
+    case "REMOVE_FROM_WATCH_LATER":
+      return {
+        ...playListState,
+        watchLaterVideos: payload
+      }
 
     default:
       return {

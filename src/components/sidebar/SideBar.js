@@ -18,7 +18,7 @@ export function SideBar() {
           <i class="fa-solid fa-play"></i>
           <span>Playlists</span>
         </NavLink>
-        <NavLink className="link-no-style sidebar-item" to="/">
+        <NavLink className="link-no-style sidebar-item" to="/watchlater">
           <i class="fa-solid fa-clock"></i>
           <span>Watch later</span>
         </NavLink>

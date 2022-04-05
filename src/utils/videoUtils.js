@@ -33,6 +33,10 @@ export const IsVideoAlreadyLiked = (videoId, _likedVideos) => {
   return _likedVideos ? _likedVideos.some(({ _id }) => _id === videoId) : false;
 };
 
+export const IsVideoAlreadyInWatchLater = (videoId, watchLaterVideos) => {
+  return watchLaterVideos ? watchLaterVideos.some(({ _id }) => _id === videoId) : false;
+};
+
 export const RemoveFromLikedVideos = async (videoId, playListDispatch) => {
   try {
     const {
