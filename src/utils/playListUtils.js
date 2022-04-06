@@ -44,9 +44,7 @@ export const removeVideoFromPlayList = async (
   playListDispatch
 ) => {
   try {
-    const {
-      data: { playlist },
-    } = await axios.delete(`/api/user/playlists/${playlistId}/${videoId}`, {
+   await axios.delete(`/api/user/playlists/${playlistId}/${videoId}`, {
       headers: { authorization: localStorage.getItem("token") },
     });
     playListDispatch({
@@ -66,9 +64,7 @@ export const addVideoToPlayList = async (
   playLists
 ) => {
   try {
-    const {
-      data: { playlist },
-    } = await axios.post(
+    await axios.post(
       `/api/user/playlists/${playlistID}`,
       {
         video,
