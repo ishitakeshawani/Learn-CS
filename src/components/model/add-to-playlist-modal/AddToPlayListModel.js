@@ -6,7 +6,7 @@ import {
   addVideoToPlayList,
 } from "../../../utils";
 import "./addtoplaylistmodel.css";
-import axios from "axios";
+
 
 export function AddToPlayListModel({ setShowModal, videoId, video }) {
   const { playListState, playListDispatch } = usePlayList();
@@ -47,20 +47,18 @@ export function AddToPlayListModel({ setShowModal, videoId, video }) {
                   <input
                     type="checkbox"
                     id={playlist._id}
-                    onChange={(e) =>
-                      !isVideoExistInPlayList(videoId, playlist)
-                        ? addVideoToPlayList(
-                            playlist._id,
-                            playlist,
-                            playListDispatch,
-                            video,
-                            playLists
-                          )
-                        : removeVideoFromPlayList(
-                            playlist._id,
-                            videoId,
-                            playListDispatch
-                          )
+                    checked={isVideoExistInPlayList(
+                      video._id,
+                      playlist._id,
+                      playLists
+                    )}
+                    onChange={() =>
+                      playlistHandler(
+                        video._id,
+                        playlist._id,
+                        playLists,
+                        playlist
+                      )
                     }
                   />
 

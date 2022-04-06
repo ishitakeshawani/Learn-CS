@@ -1,12 +1,12 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import { PlayListCard, PlayListModel } from "../../components";
 import { usePlayList } from "../../contexts";
 import "./playlists.css";
-import axios from "axios";
+
 
 export function PlayLists() {
   const [showModel, setShowModel] = useState(false);
-  const { playListState, playListDispatch } = usePlayList();
+  const { playListState } = usePlayList();
   const playLists = playListState.playLists;
   console.log(playLists);
 
