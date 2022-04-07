@@ -1,4 +1,6 @@
 import axios from "axios";
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
 
 export const addNewPlayList = async (playListName, playListDispatch) => {
   try {
@@ -19,9 +21,10 @@ export const addNewPlayList = async (playListName, playListDispatch) => {
       type: "INITIALIZE_PLAYLISTS",
       payload: playlists,
     });
-    console.log(playlists);
   } catch (error) {
     console.log(error);
+    const notify = () => toast(error.message);
+    notify();
   }
 };
 
@@ -39,6 +42,24 @@ export const deletePlayList = async (playListId, playListDispatch) => {
   }
 };
 
+export const removeVideoFromPlayList = async (
+  playlistId,
+  videoId,
+  playListDispatch
+) => {
+  try {
+   await axios.delete(`/api/user/playlists/${playlistId}/${videoId}`, {
+      headers: { authorization: localStorage.getItem("token") },
+    });
+    playListDispatch({
+      type: "REMOVE_video_from_playlist",
+      payload: { playlistId, videoId },
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export const addVideoToPlayList = async (
   playlistID,
   playlist,
@@ -46,11 +67,8 @@ export const addVideoToPlayList = async (
   video,
   playLists
 ) => {
-  console.log(video, playlistID, playLists);
   try {
-    const {
-      data: { playlist },
-    } = await axios.post(
+    await axios.post(
       `/api/user/playlists/${playlistID}`,
       {
         video,
@@ -65,30 +83,57 @@ export const addVideoToPlayList = async (
       type: "ADD_VIDEO_TO_PLAYLIST",
       payload: { video, playlistID },
     });
-
-    console.log(playlist);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const removeVideoFromPlayList = async (
-  playlistId,
-  videoId,
-  playListDispatch
-) => {
+export const isVideoExistInPlayList = (videoID, playlistID, playLists) => {
+  return playLists
+    .find(({ _id }) => _id === playlistID)
+    .videos.some(({ _id }) => _id === videoID);
+};
+
+export const addToWatchLater = async (video, playListDispatch) => {
   try {
     const {
-      data: { playlist },
-    } = await axios.delete(`/api/user/playlists/${playlistId}/${videoId}`, {
-      headers: { authorization: localStorage.getItem("token") },
+      data: { watchlater },
+    } = await axios.post(
+      "/api/user/watchlater",
+      {
+        video,
+      },
+      {
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+      }
+    );
+    playListDispatch({
+      type: "ADD_TO_WATCH_LATER",
+      payload: watchlater,
+    });
+  } catch (error) {
+    const notify = () => toast(error.message);
+    notify();
+  }
+};
+
+export const removeFromWatchLater = async (videoId, playListDispatch) => {
+  try {
+    const {
+      data: { watchlater },
+    } = await axios.delete(`/api/user/watchlater/${videoId}`, {
+      headers: {
+        authorization: localStorage.getItem("token"),
+      },
     });
     playListDispatch({
-      type: "REMOVE_video_from_playlist",
-      payload: { playlistId, videoId },
-    });
-    console.log(playlist);
-  } catch (e) {
-    console.log(e);
+      type: "REMOVE_FROM_WATCH_LATER",
+      payload: watchlater
+    })
+  } catch (error) {
+    const notify = () => toast(error.message);
+    notify();
   }
 };

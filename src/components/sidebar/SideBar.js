@@ -18,15 +18,15 @@ export function SideBar() {
           <i class="fa-solid fa-play"></i>
           <span>Playlists</span>
         </NavLink>
-        <NavLink className="link-no-style sidebar-item" to="/">
+        <NavLink className="link-no-style sidebar-item" to="/watchlater">
           <i class="fa-solid fa-clock"></i>
           <span>Watch later</span>
         </NavLink>
-        <NavLink className="link-no-style sidebar-item" to="/">
+        <NavLink className="link-no-style sidebar-item" to="/likedvideos">
           <i class="fa-solid fa-thumbs-up"></i>
           <span>Liked videos</span>
         </NavLink>
-        <NavLink className="link-no-style sidebar-item" to="/">
+        <NavLink className="link-no-style sidebar-item" to="/history">
           <i class="fa-solid fa-clock-rotate-left"></i>
           <span>History</span>
         </NavLink>

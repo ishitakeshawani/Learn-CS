@@ -6,6 +6,8 @@ const PlayListContext = createContext();
 const PlayListProvider = ({ children }) => {
   const initialState = {
     playLists: [],
+    likedVideos: [],
+    watchLaterVideos: []
   };
   const [playListState, playListDispatch] = useReducer(
     playListReducer,

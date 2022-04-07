@@ -1,16 +1,29 @@
-import React from "react";
+import { React, useEffect, useCallback } from "react";
 import { SideBar, VideoCard } from "../../components";
 import "./explore.css";
 import { useVideo } from "../../contexts/VideoProvider";
 import { getVideosByCategory } from "../../utils";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function Explore() {
   const { videoState, videoDispatch } = useVideo();
   const videosData = videoState.videos;
   const videos = getVideosByCategory(videosData, videoState.selectedCategory);
   const categories = videoState.categories;
+  const signup = videoState.signup;
+  let notify = useCallback(
+    () => toast(signup ? "Sucessfully made an account." : "Please do signup!"),
+    [signup]
+  );
+
+  useEffect(() => {
+    notify();
+  });
+
   return (
     <div className="explore-page">
+      <ToastContainer />
       <SideBar />
       <div className="video-section">
         <div className="category-filter-list">

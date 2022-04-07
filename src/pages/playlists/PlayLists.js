@@ -1,31 +1,14 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import { PlayListCard, PlayListModel } from "../../components";
 import { usePlayList } from "../../contexts";
 import "./playlists.css";
-import axios from "axios";
+
 
 export function PlayLists() {
   const [showModel, setShowModel] = useState(false);
-  const { playListState, playListDispatch } = usePlayList();
+  const { playListState } = usePlayList();
   const playLists = playListState.playLists;
- 
-  useEffect(() => {
-    (async () => {
-      try {
-        const {
-          data: { playlists },
-        } = await axios.get("/api/user/playlists", {
-          headers: { authorization: localStorage.getItem("token") },
-        });
-
-        playListDispatch({ type: "INITIALIZE_PLAYLISTS", payload: playlists });
-        console.log(playlists);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, [playListDispatch]);
- 
+  console.log(playLists);
 
   return (
     <div>

@@ -1,9 +1,39 @@
 import { React, useState } from "react";
 import { AddToPlayListModel } from "../model/add-to-playlist-modal/AddToPlayListModel";
 import "./videocard.css";
+import {
+  addToLikedVideos,
+  IsVideoAlreadyLiked,
+  RemoveFromLikedVideos,
+  addToWatchLater,
+  IsVideoAlreadyInWatchLater,
+  removeFromWatchLater,
+} from "../../utils";
+import { usePlayList } from "../../contexts/PlayListProvider";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 export function VideoCard({ video }) {
   const [showModal, setShowModal] = useState(false);
+  const { playListDispatch, playListState } = usePlayList();
+  const _likedVideos = playListState.likedVideos;
+  const watchLaterVideos = playListState.watchLaterVideos;
+
+  const likedHandler = (videoId, _likedVideos) => {
+    <ToastContainer />;
+
+    return IsVideoAlreadyLiked(videoId, _likedVideos)
+      ? RemoveFromLikedVideos(videoId, playListDispatch)
+      : addToLikedVideos(video, playListDispatch);
+  };
+
+  const watchLaterHandler = (videoID, watchLaterVideos) => {
+    <ToastContainer />;
+
+    IsVideoAlreadyInWatchLater(videoID, watchLaterVideos)
+      ? removeFromWatchLater(videoID, playListDispatch)
+      : addToWatchLater(video, playListDispatch);
+  };
   return (
     <div className="card card-box-shadow">
       <div className="card-section regular-font-weight" id="card-section">
@@ -19,12 +49,35 @@ export function VideoCard({ video }) {
             <p>•</p>
             <p>{video.duration}</p>
             <i
-              className="far fa-save save-to-icon"
+              className={`${
+                IsVideoAlreadyLiked(video._id, _likedVideos)
+                  ? "fas fa-heart save-to-icon"
+                  : "fa-regular fa-heart save-to-icon"
+              }`}
+              onClick={() => {
+                likedHandler(video._id, _likedVideos);
+              }}
+            ></i>
+            <i
+              className="fa-regular fa-save save-to-icon"
               onClick={() => setShowModal(true)}
             ></i>
-            <button className="no-style-btn">Watch Later</button>
+            <i
+              className={`${
+                IsVideoAlreadyInWatchLater(video._id, watchLaterVideos)
+                  ? "fas fa-clock save-to-icon"
+                  : "fa-regular fa-clock save-to-icon"
+              }`}
+              onClick={() => watchLaterHandler(video._id, watchLaterVideos)}
+            ></i>
           </div>
-          {showModal && <AddToPlayListModel setShowModal={setShowModal} videoId={video._id} video={video} />}
+          {showModal && (
+            <AddToPlayListModel
+              setShowModal={setShowModal}
+              videoId={video._id}
+              video={video}
+            />
+          )}
         </div>
       </div>
     </div>

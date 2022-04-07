@@ -1,0 +1,18 @@
+.watch-later {
+  display: flex;
+  flex-direction: column;
+  margin: 2.5rem;
+}
+
+.watch-later-videos-title {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.watch-later-videos-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 1rem 3rem;
+  gap: 2rem;
+}

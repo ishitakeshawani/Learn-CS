@@ -55,7 +55,6 @@ export function PlayList() {
                         )
                       }
                     ></i>
-                    <button className="no-style-btn">Watch Later</button>
                   </div>
                 </div>
               </div>
