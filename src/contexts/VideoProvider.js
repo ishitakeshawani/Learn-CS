@@ -9,7 +9,7 @@ function VideoProvider({ children }) {
     videos: [],
     categories: [],
     selectedCategory: "All",
-    signup: false
+    signup: false,
   };
   useEffect(() => {
     (async () => {

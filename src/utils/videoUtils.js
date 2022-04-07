@@ -1,4 +1,6 @@
 import axios from "axios";
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
 
 export const getVideosByCategory = (videos, selectedCategory) => {
   return videos.filter((video) =>
@@ -6,7 +8,7 @@ export const getVideosByCategory = (videos, selectedCategory) => {
   );
 };
 
-export const addToLikedVideos = async (video, playListDispatch) => {
+export const addToLikedVideos = async (video, playListDispatch,error) => {
   try {
     const {
       data: { likes },
@@ -25,7 +27,8 @@ export const addToLikedVideos = async (video, playListDispatch) => {
       payload: likes,
     });
   } catch (error) {
-    console.log(error);
+    const notify = () => toast(error.message);
+    notify();
   }
 };
 
@@ -51,5 +54,7 @@ export const RemoveFromLikedVideos = async (videoId, playListDispatch) => {
     });
   } catch (error) {
     console.log(error);
+    const notify = () => toast(error.message);
+    notify();
   }
 };

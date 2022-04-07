@@ -7,7 +7,7 @@ import {
   ADD_TO_LIKED_VIDEOS,
   REMOVE_FROM_LIKED_VIDEOS,
   ADD_TO_WATCH_LATER,
-  REMOVE_FROM_WATCH_LATER,
+  REMOVE_FROM_WATCH_LATER
 } from "./index";
 
 export const playListReducer = (playListState, { type, payload }) => {

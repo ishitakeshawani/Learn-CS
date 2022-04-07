@@ -11,20 +11,25 @@ import {
 } from "../../utils";
 import { usePlayList } from "../../contexts/PlayListProvider";
 import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 export function VideoCard({ video }) {
   const [showModal, setShowModal] = useState(false);
   const { playListDispatch, playListState } = usePlayList();
   const _likedVideos = playListState.likedVideos;
   const watchLaterVideos = playListState.watchLaterVideos;
- 
+
   const likedHandler = (videoId, _likedVideos) => {
-    IsVideoAlreadyLiked(videoId, _likedVideos)
+    <ToastContainer />;
+
+    return IsVideoAlreadyLiked(videoId, _likedVideos)
       ? RemoveFromLikedVideos(videoId, playListDispatch)
       : addToLikedVideos(video, playListDispatch);
   };
 
   const watchLaterHandler = (videoID, watchLaterVideos) => {
+    <ToastContainer />;
+
     IsVideoAlreadyInWatchLater(videoID, watchLaterVideos)
       ? removeFromWatchLater(videoID, playListDispatch)
       : addToWatchLater(video, playListDispatch);

@@ -1,4 +1,6 @@
 import axios from "axios";
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
 
 export const addNewPlayList = async (playListName, playListDispatch) => {
   try {
@@ -21,6 +23,8 @@ export const addNewPlayList = async (playListName, playListDispatch) => {
     });
   } catch (error) {
     console.log(error);
+    const notify = () => toast(error.message);
+    notify();
   }
 };
 
@@ -110,7 +114,8 @@ export const addToWatchLater = async (video, playListDispatch) => {
       payload: watchlater,
     });
   } catch (error) {
-    console.log(error);
+    const notify = () => toast(error.message);
+    notify();
   }
 };
 
@@ -128,6 +133,7 @@ export const removeFromWatchLater = async (videoId, playListDispatch) => {
       payload: watchlater
     })
   } catch (error) {
-    console.log(error);
+    const notify = () => toast(error.message);
+    notify();
   }
 };
