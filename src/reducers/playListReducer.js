@@ -10,6 +10,7 @@ import {
   REMOVE_FROM_WATCH_LATER,
   ADD_TO_HISTORY,
   CLEAR_HISTORY,
+  DELETE_FROM_HISTORY,
 } from "./index";
 
 export const playListReducer = (playListState, { type, payload }) => {
@@ -94,6 +95,12 @@ export const playListReducer = (playListState, { type, payload }) => {
         ...playListState,
         history: payload,
       };
+    case DELETE_FROM_HISTORY:
+      return {
+        ...playListState,
+        history: playListState.history.filter(({ _id }) => _id !== payload),
+      };
+
     default:
       return {
         ...playListState,

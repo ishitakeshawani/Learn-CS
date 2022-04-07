@@ -12,3 +12,4 @@ export { IsVideoAlreadyInWatchLater } from "./videoUtils";
 export { removeFromWatchLater } from "./playListUtils";
 export { addVideoToHistory } from "./playListUtils";
 export { clearHistory } from "./playListUtils";
+export { removeVideoFromHistory } from "./playListUtils";
