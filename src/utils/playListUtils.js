@@ -44,7 +44,7 @@ export const removeVideoFromPlayList = async (
   playListDispatch
 ) => {
   try {
-   await axios.delete(`/api/user/playlists/${playlistId}/${videoId}`, {
+    await axios.delete(`/api/user/playlists/${playlistId}/${videoId}`, {
       headers: { authorization: localStorage.getItem("token") },
     });
     playListDispatch({
@@ -125,14 +125,14 @@ export const removeFromWatchLater = async (videoId, playListDispatch) => {
     });
     playListDispatch({
       type: "REMOVE_FROM_WATCH_LATER",
-      payload: watchlater
-    })
+      payload: watchlater,
+    });
   } catch (error) {
     console.log(error);
   }
 };
 
-export const addVideoToHistory = async (video,playListDispatch) => {
+export const addVideoToHistory = async (video, playListDispatch) => {
   try {
     video &&
       (await axios.post(
@@ -152,4 +152,20 @@ export const addVideoToHistory = async (video,playListDispatch) => {
   } catch (error) {
     console.log(error);
   }
-}
+};
+
+export const clearHistory = async (playListDispatch) => {
+  try {
+    const {
+      data: { history },
+    } = await axios.delete("/api/user/history/all", {
+      headers: { authorization: localStorage.getItem("token") },
+    });
+    playListDispatch({
+      type: "CLEAR_HISTORY",
+      payload: history,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
