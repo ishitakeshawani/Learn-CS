@@ -10,13 +10,14 @@ import {
   removeFromWatchLater,
 } from "../../utils";
 import { usePlayList } from "../../contexts/PlayListProvider";
+import "react-toastify/dist/ReactToastify.css";
 
 export function VideoCard({ video }) {
   const [showModal, setShowModal] = useState(false);
   const { playListDispatch, playListState } = usePlayList();
   const _likedVideos = playListState.likedVideos;
   const watchLaterVideos = playListState.watchLaterVideos;
-
+ 
   const likedHandler = (videoId, _likedVideos) => {
     IsVideoAlreadyLiked(videoId, _likedVideos)
       ? RemoveFromLikedVideos(videoId, playListDispatch)
@@ -48,7 +49,9 @@ export function VideoCard({ video }) {
                   ? "fas fa-heart save-to-icon"
                   : "fa-regular fa-heart save-to-icon"
               }`}
-              onClick={() => likedHandler(video._id, _likedVideos)}
+              onClick={() => {
+                likedHandler(video._id, _likedVideos);
+              }}
             ></i>
             <i
               className="fa-regular fa-save save-to-icon"

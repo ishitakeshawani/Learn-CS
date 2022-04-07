@@ -4,6 +4,7 @@ import "../login/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { usePlayList } from "../../contexts";
+import { useVideo } from "../../contexts";
 
 export function SignUp() {
   const [userData, setUserData] = useState({
@@ -14,6 +15,7 @@ export function SignUp() {
     lastName: "",
   });
   let navigate = useNavigate();
+  const { videoState } = useVideo();
   const { playListDispatch } = usePlayList();
 
   const onHandleSubmit = async () => {
@@ -30,9 +32,9 @@ export function SignUp() {
       });
       playListDispatch({
         type: "INITIALIZE_PLAYLISTS",
-        payload: value.data.createdUser.playlists
+        payload: value.data.createdUser.playlists,
       });
-
+      videoState.signup = true;
       navigate("/");
     } catch (e) {
       console.log("error", e);

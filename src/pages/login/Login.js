@@ -23,7 +23,7 @@ export function Login() {
       });
       playListDispatch({
         type: "INITIALIZE_PLAYLISTS",
-        payload: value.data.foundUser.playlists
+        payload: value.data.foundUser.playlists,
       });
       navigate("/");
     } catch (e) {
