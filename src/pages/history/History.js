@@ -32,8 +32,7 @@ export function History() {
                 </Link>
                 <div className="card-header">
                   <div className="card-header-title bold-font-weight">
-                    {" "}
-                    {video.title}{" "}
+                    {video.title}
                   </div>
                   <p className="author-name">by {video.name}</p>
                   <div className="views-time">
