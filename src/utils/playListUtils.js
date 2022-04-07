@@ -172,9 +172,7 @@ export const clearHistory = async (playListDispatch) => {
 
 export const removeVideoFromHistory = async (videoId, playListDispatch) => {
   try {
-    const {
-      data: { history },
-    } = await axios.delete(`/api/user/history/${videoId}`, {
+   await axios.delete(`/api/user/history/${videoId}`, {
       headers: { authorization: localStorage.getItem("token") },
     });
     playListDispatch({
