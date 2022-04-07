@@ -1,7 +1,14 @@
 .history-section {
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   margin: 2.5rem;
 }
 
 
+=======
+    display: flex;
+    flex-direction: column;
+    margin: 2.5rem;
+  }
+>>>>>>> 2cc6979 (added route for history)
