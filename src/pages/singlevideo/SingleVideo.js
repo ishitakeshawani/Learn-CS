@@ -45,7 +45,7 @@ export function SingleVideo() {
     })();
   }, [videoId]);
 
-  const likedHandler = (videoId, _likedVideos) => {
+  const likedHandler = (videoId, _likedVideos, video) => {
     if (IsVideoAlreadyLiked(videoId, _likedVideos)) {
       RemoveFromLikedVideos(videoId, playListDispatch);
     } else {
@@ -53,7 +53,7 @@ export function SingleVideo() {
     }
   };
 
-  const watchLaterHandler = (videoID, watchLaterVideos) => {
+  const watchLaterHandler = (videoID, watchLaterVideos, video) => {
     if (IsVideoAlreadyInWatchLater(videoID, watchLaterVideos)) {
       removeFromWatchLater(videoID, playListDispatch);
     } else {
@@ -95,7 +95,7 @@ export function SingleVideo() {
             <div className="flex">
               <div
                 className="video-detail-item"
-                onClick={() => likedHandler(videoId, _likedVideos)}
+                onClick={() => likedHandler(videoId, _likedVideos, video)}
               >
                 <i
                   className={`${
@@ -123,7 +123,9 @@ export function SingleVideo() {
               )}
               <div
                 className="video-detail-item"
-                onClick={() => watchLaterHandler(video._id, watchLaterVideos)}
+                onClick={() =>
+                  watchLaterHandler(video._id, watchLaterVideos, video)
+                }
               >
                 <i
                   className={`${

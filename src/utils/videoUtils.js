@@ -9,7 +9,6 @@ export const getVideosByCategory = (videos, selectedCategory) => {
 };
 
 export const addToLikedVideos = async (video, playListDispatch) => {
-  console.log(video,localStorage.getItem("token"))
   try {
     const {
       data: { likes },
