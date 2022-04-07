@@ -7,7 +7,9 @@ import {
   ADD_TO_LIKED_VIDEOS,
   REMOVE_FROM_LIKED_VIDEOS,
   ADD_TO_WATCH_LATER,
-  REMOVE_FROM_WATCH_LATER
+  REMOVE_FROM_WATCH_LATER,
+  ADD_TO_HISTORY,
+  CLEAR_HISTORY,
 } from "./index";
 
 export const playListReducer = (playListState, { type, payload }) => {
@@ -80,19 +82,18 @@ export const playListReducer = (playListState, { type, payload }) => {
     case REMOVE_FROM_WATCH_LATER:
       return {
         ...playListState,
-<<<<<<< HEAD
         watchLaterVideos: payload,
       };
-=======
-        watchLaterVideos: payload
-      }
-    case "ADD_TO_HISTORY":
+    case ADD_TO_HISTORY:
       return {
         ...playListState,
-        history: playListState.history.concat(payload)
-      }
->>>>>>> 8d1185c (implemented add to history)
-
+        history: playListState.history.concat(payload),
+      };
+    case CLEAR_HISTORY:
+      return {
+        ...playListState,
+        history: payload,
+      };
     default:
       return {
         ...playListState,
