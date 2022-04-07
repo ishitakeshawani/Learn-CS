@@ -1,23 +1,12 @@
 .history-section {
-<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   margin: 2.5rem;
 }
-=======
-    display: flex;
-    flex-direction: column;
-    margin: 2.5rem;
-  }
->>>>>>> 681a22ffc855adacb4aed3e23ecdb37cf6e88f08
 
 .watch-later-videos-section{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin: 1rem 3rem;
   gap: 2rem;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 681a22ffc855adacb4aed3e23ecdb37cf6e88f08
