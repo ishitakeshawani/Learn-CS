@@ -169,3 +169,19 @@ export const clearHistory = async (playListDispatch) => {
     console.log(error);
   }
 };
+
+export const removeVideoFromHistory = async (videoId, playListDispatch) => {
+  try {
+    const {
+      data: { history },
+    } = await axios.delete(`/api/user/history/${videoId}`, {
+      headers: { authorization: localStorage.getItem("token") },
+    });
+    playListDispatch({
+      type: "DELETE_FROM_HISTORY",
+      payload: videoId,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

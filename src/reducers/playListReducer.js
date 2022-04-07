@@ -80,6 +80,11 @@ export const playListReducer = (playListState, { type, payload }) => {
         ...playListState,
         history: payload,
       };
+    case "DELETE_FROM_HISTORY":
+      return {
+        ...playListState,
+        history: playListState.history.filter(({ _id }) => _id !== payload),
+      };
 
     default:
       return {
