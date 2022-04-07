@@ -1,12 +1,24 @@
+import {
+  INITIALIZE_PLAYLISTS,
+  ADD_NAME_OF_PLAYLIST,
+  ADD_VIDEO_TO_PLAYLIST,
+  DELETE_PLAYLIST,
+  REMOVE_video_from_playlist,
+  ADD_TO_LIKED_VIDEOS,
+  REMOVE_FROM_LIKED_VIDEOS,
+  ADD_TO_WATCH_LATER,
+  REMOVE_FROM_WATCH_LATER,
+} from "./index";
+
 export const playListReducer = (playListState, { type, payload }) => {
   switch (type) {
-    case "INITIALIZE_PLAYLISTS":
+    case INITIALIZE_PLAYLISTS:
       console.log(payload);
       return {
         ...playListState,
         playLists: payload,
       };
-    case "ADD_NAME_OF_PLAYLIST":
+    case ADD_NAME_OF_PLAYLIST:
       console.log(payload, playListState);
       return {
         ...playListState,
@@ -18,8 +30,8 @@ export const playListReducer = (playListState, { type, payload }) => {
           },
         ],
       };
-    case "ADD_VIDEO_TO_PLAYLIST":
-      console.log(payload.video)
+    case ADD_VIDEO_TO_PLAYLIST:
+      console.log(payload.video);
       return {
         ...playListState,
         playLists: playListState.playLists.map((playlist) =>
@@ -31,12 +43,12 @@ export const playListReducer = (playListState, { type, payload }) => {
             : playlist
         ),
       };
-    case "DELETE_PLAYLIST":
+    case DELETE_PLAYLIST:
       return {
         ...playListState,
         playLists: playListState.playLists.filter(({ _id }) => _id !== payload),
       };
-    case "REMOVE_video_from_playlist":
+    case REMOVE_video_from_playlist:
       return {
         ...playListState,
         playLists: playListState.playLists.map((playlist) =>
@@ -50,26 +62,26 @@ export const playListReducer = (playListState, { type, payload }) => {
             : playlist
         ),
       };
-    case "ADD_TO_LIKED_VIDEOS":
+    case ADD_TO_LIKED_VIDEOS:
       return {
         ...playListState,
         likedVideos: payload,
       };
-    case "REMOVE_FROM_LIKED_VIDEOS":
+    case REMOVE_FROM_LIKED_VIDEOS:
       return {
         ...playListState,
-        likedVideos: payload
-      }
-    case "ADD_TO_WATCH_LATER":
+        likedVideos: payload,
+      };
+    case ADD_TO_WATCH_LATER:
       return {
         ...playListState,
-        watchLaterVideos: payload
-      }
-    case "REMOVE_FROM_WATCH_LATER":
+        watchLaterVideos: payload,
+      };
+    case REMOVE_FROM_WATCH_LATER:
       return {
         ...playListState,
-        watchLaterVideos: payload
-      }
+        watchLaterVideos: payload,
+      };
 
     default:
       return {

@@ -1,2 +1,14 @@
 export { videoReducer } from "./videoReducer";
 export { playListReducer } from "./playListReducer";
+export const INITIALIZE_PLAYLISTS = "INITIALIZE_PLAYLISTS";
+export const ADD_NAME_OF_PLAYLIST = "ADD_NAME_OF_PLAYLIST";
+export const ADD_VIDEO_TO_PLAYLIST = "ADD_VIDEO_TO_PLAYLIST";
+export const DELETE_PLAYLIST = "DELETE_PLAYLIST";
+export const REMOVE_video_from_playlist = "REMOVE_video_from_playlist";
+export const ADD_TO_LIKED_VIDEOS = "ADD_TO_LIKED_VIDEOS";
+export const REMOVE_FROM_LIKED_VIDEOS = "REMOVE_FROM_LIKED_VIDEOS";
+export const ADD_TO_WATCH_LATER = "ADD_TO_WATCH_LATER";
+export const REMOVE_FROM_WATCH_LATER = "REMOVE_FROM_WATCH_LATER";
+export const INITIALIZE_VIDEOS = "INITIALIZE_VIDEOS";
+export const INITIALIZE_CATEGORIES = "INITIALIZE_CATEGORIES";
+export const SET_SELECTED_CATEGORY = "SET_SELECTED_CATEGORY";
