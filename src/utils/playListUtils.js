@@ -1,5 +1,5 @@
 import axios from "axios";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const addNewPlayList = async (playListName, playListDispatch) => {
@@ -178,7 +178,7 @@ export const clearHistory = async (playListDispatch) => {
 
 export const removeVideoFromHistory = async (videoId, playListDispatch) => {
   try {
-   await axios.delete(`/api/user/history/${videoId}`, {
+    await axios.delete(`/api/user/history/${videoId}`, {
       headers: { authorization: localStorage.getItem("token") },
     });
     playListDispatch({

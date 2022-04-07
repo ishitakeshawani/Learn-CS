@@ -11,6 +11,7 @@ import {
   LikedVideos,
   WatchLater,
   History,
+  SingleVideo
 } from "./pages";
 
 function App() {

@@ -8,12 +8,7 @@ export const getVideosByCategory = (videos, selectedCategory) => {
   );
 };
 
-<<<<<<< HEAD
-export const addToLikedVideos = async (video, playListDispatch,error) => {
-=======
 export const addToLikedVideos = async (video, playListDispatch) => {
-  console.log(video,localStorage.getItem("token"))
->>>>>>> 7dff65b (added single video page)
   try {
     const {
       data: { likes },

@@ -1,19 +1,8 @@
 .history-section {
-<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   margin: 2.5rem;
 }
-
-
-=======
-    display: flex;
-    flex-direction: column;
-    margin: 2.5rem;
-  }
-<<<<<<< HEAD
->>>>>>> 2cc6979 (added route for history)
-=======
 
 .watch-later-videos-section{
   display: grid;
@@ -21,4 +10,3 @@
   margin: 1rem 3rem;
   gap: 2rem;
 }
->>>>>>> 8d1185c (implemented add to history)
