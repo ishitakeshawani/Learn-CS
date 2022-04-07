@@ -3,3 +3,10 @@
     flex-direction: column;
     margin: 2.5rem;
   }
+
+.watch-later-videos-section{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 1rem 3rem;
+  gap: 2rem;
+}

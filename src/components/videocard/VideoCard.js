@@ -8,6 +8,7 @@ import {
   addToWatchLater,
   IsVideoAlreadyInWatchLater,
   removeFromWatchLater,
+  addVideoToHistory
 } from "../../utils";
 import { usePlayList } from "../../contexts/PlayListProvider";
 import { Link } from "react-router-dom";
@@ -36,7 +37,7 @@ export function VideoCard({ video }) {
   return (
     <div className="card card-box-shadow">
       <div className="card-section regular-font-weight" id="card-section">
-        <Link to={`/video/${video._id}`}>
+        <Link to={`/video/${video._id}`} onClick={() => addVideoToHistory(video,playListDispatch)}>
           <img className="card-img" src={video.image} alt="thumbnail" />
         </Link>
         <div className="card-header">

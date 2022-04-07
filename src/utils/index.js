@@ -10,3 +10,4 @@ export { isVideoExistInPlayList } from "./playListUtils";
 export { addToWatchLater } from "./playListUtils";
 export { IsVideoAlreadyInWatchLater } from "./videoUtils";
 export { removeFromWatchLater } from "./playListUtils";
+export { addVideoToHistory } from "./playListUtils";

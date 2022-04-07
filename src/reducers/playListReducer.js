@@ -70,6 +70,11 @@ export const playListReducer = (playListState, { type, payload }) => {
         ...playListState,
         watchLaterVideos: payload
       }
+    case "ADD_TO_HISTORY":
+      return {
+        ...playListState,
+        history: playListState.history.concat(payload)
+      }
 
     default:
       return {

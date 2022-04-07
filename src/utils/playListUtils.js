@@ -131,3 +131,25 @@ export const removeFromWatchLater = async (videoId, playListDispatch) => {
     console.log(error);
   }
 };
+
+export const addVideoToHistory = async (video,playListDispatch) => {
+  try {
+    video &&
+      (await axios.post(
+        "/api/user/history",
+        {
+          video,
+        },
+        {
+          headers: { authorization: localStorage.getItem("token") },
+        }
+      ));
+    playListDispatch({
+      type: "ADD_TO_HISTORY",
+      payload: video,
+    });
+    console.log(video);
+  } catch (error) {
+    console.log(error);
+  }
+}
