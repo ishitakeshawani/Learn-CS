@@ -7,6 +7,10 @@
   font-size: 1.1rem;
 }
 
+.card a{
+  padding: 0;
+}
+
 .views-time {
   display: flex;
   gap: 0.4rem;

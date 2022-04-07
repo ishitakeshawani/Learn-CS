@@ -13,7 +13,7 @@ export function Explore() {
   const categories = videoState.categories;
   const signup = videoState.signup;
   let notify = useCallback(
-    () => toast(signup ? "Sucessfully made an account." : "Please do signup!"),
+    () => toast(!signup && "Please do signup!"),
     [signup]
   );
 

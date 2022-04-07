@@ -11,7 +11,7 @@ import "./addtoplaylistmodel.css";
 export function AddToPlayListModel({ setShowModal, videoId, video }) {
   const { playListState, playListDispatch } = usePlayList();
   const playLists = playListState.playLists;
-  const playlistHandler = (videoID, playlistID, playLists, playlist) => {
+  const playlistHandler = (videoId, playlistID, playLists, playlist) => {
     if (!isVideoExistInPlayList(videoId, playlistID, playLists)) {
       addVideoToPlayList(
         playlistID,
@@ -48,13 +48,13 @@ export function AddToPlayListModel({ setShowModal, videoId, video }) {
                     type="checkbox"
                     id={playlist._id}
                     checked={isVideoExistInPlayList(
-                      video._id,
+                      videoId,
                       playlist._id,
                       playLists
                     )}
                     onChange={() =>
                       playlistHandler(
-                        video._id,
+                        videoId,
                         playlist._id,
                         playLists,
                         playlist

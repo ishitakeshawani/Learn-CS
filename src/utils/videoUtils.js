@@ -8,7 +8,7 @@ export const getVideosByCategory = (videos, selectedCategory) => {
   );
 };
 
-export const addToLikedVideos = async (video, playListDispatch,error) => {
+export const addToLikedVideos = async (video, playListDispatch) => {
   try {
     const {
       data: { likes },

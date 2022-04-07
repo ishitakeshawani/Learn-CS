@@ -7,7 +7,8 @@ const PlayListProvider = ({ children }) => {
   const initialState = {
     playLists: [],
     likedVideos: [],
-    watchLaterVideos: []
+    watchLaterVideos: [],
+    history: []
   };
   const [playListState, playListDispatch] = useReducer(
     playListReducer,

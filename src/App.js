@@ -11,6 +11,7 @@ import {
   LikedVideos,
   WatchLater,
   History,
+  SingleVideo
 } from "./pages";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/likedvideos" element={<LikedVideos />} />
         <Route path="/watchlater" element={<WatchLater />} />
         <Route path="/history" element={<History />} />
+        <Route path="/video/:videoId" element={<SingleVideo />} />
       </Routes>
     </div>
   );
