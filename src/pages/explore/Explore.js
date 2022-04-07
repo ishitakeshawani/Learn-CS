@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useCallback } from "react";
 import { SideBar, VideoCard } from "../../components";
 import "./explore.css";
 import { useVideo } from "../../contexts/VideoProvider";
@@ -12,11 +12,14 @@ export function Explore() {
   const videos = getVideosByCategory(videosData, videoState.selectedCategory);
   const categories = videoState.categories;
   const signup = videoState.signup;
-  let notify = () =>
-    toast(signup ? "Sucessfully made an account." : "Please do signup!");
+  let notify = useCallback(
+    () => toast(signup ? "Sucessfully made an account." : "Please do signup!"),
+    [signup]
+  );
+
   useEffect(() => {
     notify();
-  }, [notify]);
+  });
 
   return (
     <div className="explore-page">
