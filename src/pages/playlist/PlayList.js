@@ -1,16 +1,18 @@
+import { Link } from "react-router-dom";
+import { usePlayList } from "../../contexts";
 import { React } from "react";
 import { useParams } from "react-router";
-import { usePlayList } from "../../contexts";
 import "./playlist.css";
 import { deletePlayList, removeVideoFromPlayList } from "../../utils";
 import { useNavigate } from "react-router";
 
 export function PlayList() {
-  const { playListState, playListDispatch } = usePlayList();
   const playListId = useParams();
+  const { playListState, playListDispatch } = usePlayList();
   const playLists = playListState.playLists;
   const playList = playLists.find(({ _id }) => _id === playListId.playListId);
   const navigate = useNavigate();
+  
   return (
     <div className="playlist">
       <div className="playlist-header">
@@ -21,7 +23,7 @@ export function PlayList() {
             deletePlayList(playListId.playListId, playListDispatch);
             navigate("/playlists");
           }}
-        >
+          >
           Delete this Playlist
         </button>
       </div>
@@ -34,7 +36,9 @@ export function PlayList() {
                 className="card-section regular-font-weight"
                 id="card-section"
               >
-                <img className="card-img" src={video.image} alt="thumbnail" />
+                <Link to={`/video/${video._id}`}>
+                  <img className="card-img" src={video.image} alt="thumbnail" />
+                </Link>
                 <div className="card-header">
                   <div className="card-header-title bold-font-weight">
                     {" "}
