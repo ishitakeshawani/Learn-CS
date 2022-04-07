@@ -18,19 +18,15 @@ export function VideoCard({ video }) {
   const watchLaterVideos = playListState.watchLaterVideos;
 
   const likedHandler = (videoId, _likedVideos) => {
-    if (IsVideoAlreadyLiked(videoId, _likedVideos)) {
-      RemoveFromLikedVideos(videoId, playListDispatch);
-    } else {
-      addToLikedVideos(video, playListDispatch);
-    }
+    IsVideoAlreadyLiked(videoId, _likedVideos)
+      ? RemoveFromLikedVideos(videoId, playListDispatch)
+      : addToLikedVideos(video, playListDispatch);
   };
 
   const watchLaterHandler = (videoID, watchLaterVideos) => {
-    if (IsVideoAlreadyInWatchLater(videoID, watchLaterVideos)) {
-      removeFromWatchLater(videoID, playListDispatch);
-    } else {
-      addToWatchLater(video, playListDispatch);
-    }
+    IsVideoAlreadyInWatchLater(videoID, watchLaterVideos)
+      ? removeFromWatchLater(videoID, playListDispatch)
+      : addToWatchLater(video, playListDispatch);
   };
   return (
     <div className="card card-box-shadow">
