@@ -133,8 +133,12 @@ export const removeFromWatchLater = async (videoId, playListDispatch) => {
       payload: watchlater,
     });
   } catch (error) {
+<<<<<<< HEAD
     const notify = () => toast(error.message);
     notify();
+=======
+    console.log(error);
+>>>>>>> 681a22ffc855adacb4aed3e23ecdb37cf6e88f08
   }
 };
 
@@ -178,7 +182,11 @@ export const clearHistory = async (playListDispatch) => {
 
 export const removeVideoFromHistory = async (videoId, playListDispatch) => {
   try {
+<<<<<<< HEAD
     await axios.delete(`/api/user/history/${videoId}`, {
+=======
+   await axios.delete(`/api/user/history/${videoId}`, {
+>>>>>>> 681a22ffc855adacb4aed3e23ecdb37cf6e88f08
       headers: { authorization: localStorage.getItem("token") },
     });
     playListDispatch({

@@ -11,8 +11,11 @@ import {
   addVideoToHistory
 } from "../../utils";
 import { usePlayList } from "../../contexts/PlayListProvider";
+<<<<<<< HEAD
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+=======
+>>>>>>> 681a22ffc855adacb4aed3e23ecdb37cf6e88f08
 import { Link } from "react-router-dom";
 
 export function VideoCard({ video }) {

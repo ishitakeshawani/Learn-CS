@@ -33,7 +33,11 @@ export const playListReducer = (playListState, { type, payload }) => {
           },
         ],
       };
+<<<<<<< HEAD
     case ADD_VIDEO_TO_PLAYLIST:
+=======
+    case "ADD_VIDEO_TO_PLAYLIST":
+>>>>>>> 681a22ffc855adacb4aed3e23ecdb37cf6e88f08
       console.log(payload.video);
       return {
         ...playListState,
@@ -83,6 +87,7 @@ export const playListReducer = (playListState, { type, payload }) => {
     case REMOVE_FROM_WATCH_LATER:
       return {
         ...playListState,
+<<<<<<< HEAD
         watchLaterVideos: payload,
       };
     case ADD_TO_HISTORY:
@@ -96,6 +101,31 @@ export const playListReducer = (playListState, { type, payload }) => {
         history: payload,
       };
     case DELETE_FROM_HISTORY:
+=======
+        likedVideos: payload,
+      };
+    case "ADD_TO_WATCH_LATER":
+      return {
+        ...playListState,
+        watchLaterVideos: payload,
+      };
+    case "REMOVE_FROM_WATCH_LATER":
+      return {
+        ...playListState,
+        watchLaterVideos: payload,
+      };
+    case "ADD_TO_HISTORY":
+      return {
+        ...playListState,
+        history: playListState.history.concat(payload),
+      };
+    case "CLEAR_HISTORY":
+      return {
+        ...playListState,
+        history: payload,
+      };
+    case "DELETE_FROM_HISTORY":
+>>>>>>> 681a22ffc855adacb4aed3e23ecdb37cf6e88f08
       return {
         ...playListState,
         history: playListState.history.filter(({ _id }) => _id !== payload),
