@@ -5,7 +5,7 @@
 
 export const videos = [
   {
-    _id: "Wo5dMEP_BbI",
+    _id: "mXw9ruZaxzQ",
     title: "Operating System Full Course",
     views: "1.2M",
     duration: "3:35:03",
@@ -17,7 +17,7 @@ export const videos = [
       "An operating system is system software that manages computer hardware and software resources and provides common services for computer programs. In this operating system full course you will be learning following topic in details.",
   },
   {
-    _id: "F_Riqjdh2oM",
+    _id: "vBURTt97EkA",
     title: "Introduction to Operating System",
     views: "1.3M",
     duration: "16:44",
@@ -29,7 +29,7 @@ export const videos = [
       "OS: Introduction to Operating System,What is an Operating System (OS), Types of Operating System (OS), Functions of Operating System (OS),Goals of Operating System (OS)",
   },
   {
-    _id: "Lh6id6U2vk5",
+    _id: "IPvYjXCsTg8",
     title: "Computer Networking Full Course",
     views: "186K",
     duration: "4:06:56",
@@ -41,7 +41,7 @@ export const videos = [
       "Learn how the internet works in this complete computer networking course. Here we cover the fundamentals of networking, OSI model deep dive, networking protocols, devices, tools, and more with real-life examples.",
   },
   {
-    _id: "U2jsc_8sHv9",
+    _id: "qiQR5rTSshw",
     title: "Computer Networking Course",
     views: "1.5M",
     duration: "9:24:49",
@@ -53,7 +53,7 @@ export const videos = [
       "This full college-level computer networking course will prepare you to configure, manage, and troubleshoot computer networks. It will also help you prepare for CompTIA's Network+ exam.",
   },
   {
-    _id: "oOaQVvNK4EU",
+    _id: "RBSGKlAvoiM",
     title: "Data Structures Course",
     views: "4.1M",
     duration: "8:03:17",
