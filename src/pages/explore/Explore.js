@@ -3,7 +3,7 @@ import { SideBar, VideoCard } from "../../components";
 import "./explore.css";
 import { useVideo } from "../../contexts/VideoProvider";
 import { getVideosByCategory } from "../../utils";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export function Explore() {
@@ -12,14 +12,6 @@ export function Explore() {
   const videos = getVideosByCategory(videosData, videoState.selectedCategory);
   const categories = videoState.categories;
   const signup = videoState.signup;
-  let notify = useCallback(
-    () => toast(!signup && "Please do signup!"),
-    [signup]
-  );
-
-  useEffect(() => {
-    notify();
-  });
 
   return (
     <div className="explore-page">

@@ -12,6 +12,9 @@ import {
   IsVideoAlreadyInWatchLater,
   removeFromWatchLater,
 } from "../../utils";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { AddToPlayListModel } from "../../components";
 
 export function SingleVideo() {
@@ -40,12 +43,14 @@ export function SingleVideo() {
 
         video && setLoading(false);
       } catch (error) {
-        console.log(error);
+        const notify = () => toast(error.message);
+        notify();
       }
     })();
   }, [videoId]);
 
   const likedHandler = (videoId, _likedVideos, video) => {
+    <ToastContainer />;
     if (IsVideoAlreadyLiked(videoId, _likedVideos)) {
       RemoveFromLikedVideos(videoId, playListDispatch);
     } else {
@@ -63,6 +68,7 @@ export function SingleVideo() {
 
   return (
     <div className="single-video-page">
+      <ToastContainer />
       <SideBar />
       {loading ? (
         "Loading"
@@ -71,7 +77,7 @@ export function SingleVideo() {
           <div className="video-container">
             <iframe
               src={`https://www.youtube.com/embed/${videoId}`}
-              frameborder="0"
+              frameBorder="0"
               title="youtube video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -83,11 +89,11 @@ export function SingleVideo() {
               <div className="video-creater-name">By {video.name}</div>
               <div className="flex">
                 <div className="flex-item">
-                  <i class="fa-solid fa-eye icon"></i>
+                  <i className="fa-solid fa-eye icon"></i>
                   <div>{video.views} views</div>
                 </div>
                 <div className="flex-item">
-                  <i class="fa-solid fa-clock"></i>
+                  <i className="fa-solid fa-clock"></i>
                   <div>{video.duration}</div>
                 </div>
               </div>
@@ -110,7 +116,7 @@ export function SingleVideo() {
                 className="video-detail-item"
                 onClick={() => setShowModal(true)}
               >
-                <i class="fa-regular fa-bookmark"></i>
+                <i className="fa-regular fa-bookmark"></i>
                 <div>Save To Playlist</div>
               </div>
               {showModal && (

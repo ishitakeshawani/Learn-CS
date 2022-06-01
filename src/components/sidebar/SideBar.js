@@ -7,11 +7,11 @@ export function SideBar() {
     <aside>
       <div className="sidebar">
         <NavLink className="link-no-style sidebar-item" to="/">
-          <i class="fa-solid fa-house"></i>
+          <i className="fa-solid fa-house"></i>
           <span>Home</span>
         </NavLink>
         <NavLink className="link-no-style sidebar-item" to="/explore">
-        <i class="fas fa-video"></i>
+        <i className="fas fa-video"></i>
           <span>Explore</span>
         </NavLink>
         <NavLink className="link-no-style sidebar-item" to="/playlists">

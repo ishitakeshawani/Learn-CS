@@ -1,5 +1,5 @@
 import axios from "axios";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const getVideosByCategory = (videos, selectedCategory) => {
@@ -13,7 +13,7 @@ export const addToLikedVideos = async (video, playListDispatch) => {
     const {
       data: { likes },
     } = await axios.post(
-      "api/user/likes",
+      "/api/user/likes",
       {
         video,
       },
@@ -27,8 +27,21 @@ export const addToLikedVideos = async (video, playListDispatch) => {
       payload: likes,
     });
   } catch (error) {
-    const notify = () => toast(error.message);
-    notify();
+    console.log(error)
+    if (error.response.status === 500) {
+      const notify = () => toast("Please do login!");
+      notify();
+    } else if (error.response.status === 404) {
+      const notify = () =>
+        toast("The email you entered is not Registered. Please do signup!");
+      notify();
+    } else if (error.response.status === 401) {
+      const notify = () => toast("The credentials you entered are invalid");
+      notify();
+    } else {
+      const notify = () => toast(error.message);
+      notify();
+    }
   }
 };
 
@@ -37,7 +50,9 @@ export const IsVideoAlreadyLiked = (videoId, _likedVideos) => {
 };
 
 export const IsVideoAlreadyInWatchLater = (videoId, watchLaterVideos) => {
-  return watchLaterVideos ? watchLaterVideos.some(({ _id }) => _id === videoId) : false;
+  return watchLaterVideos
+    ? watchLaterVideos.some(({ _id }) => _id === videoId)
+    : false;
 };
 
 export const RemoveFromLikedVideos = async (videoId, playListDispatch) => {
@@ -53,8 +68,19 @@ export const RemoveFromLikedVideos = async (videoId, playListDispatch) => {
       payload: likes,
     });
   } catch (error) {
-    console.log(error);
-    const notify = () => toast(error.message);
-    notify();
+    if (error.response.status === 500) {
+      const notify = () => toast("Please do login!");
+      notify();
+    } else if (error.response.status === 404) {
+      const notify = () =>
+        toast("The email you entered is not Registered. Please do signup!");
+      notify();
+    } else if (error.response.status === 401) {
+      const notify = () => toast("The credentials you entered are invalid");
+      notify();
+    } else {
+      const notify = () => toast(error.message);
+      notify();
+    }
   }
 };
