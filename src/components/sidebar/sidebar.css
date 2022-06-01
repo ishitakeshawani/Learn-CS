@@ -32,6 +32,12 @@ aside {
   cursor: pointer;
 }
 
+.active-sidebar-item {
+  background-color: var(--light-blue);
+  color: var(--white);
+  cursor: pointer;
+}
+
 .sidebar-item > i {
   padding: 0 1rem;
   font-size: 1.2rem;
@@ -42,5 +48,4 @@ aside {
   aside {
     display: none;
   }
-  
 }
