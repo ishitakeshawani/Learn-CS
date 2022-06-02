@@ -1,6 +1,5 @@
 import { React, useContext, createContext, useState, useEffect } from "react";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
 
 const authContext = createContext();
 
@@ -8,7 +7,6 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [encodedToken, setEncodedToken] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetch = async () => {

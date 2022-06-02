@@ -11,7 +11,7 @@ export function Login() {
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
+
   const [passwordError, setPasswordError] = useState("");
   let navigate = useNavigate();
   const { playListDispatch } = usePlayList();
@@ -44,16 +44,6 @@ export function Login() {
   };
 
   const doValidate = () => {
-    if (
-      !/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(
-        userData.email
-      )
-    ) {
-      setError("Please enter a valid email address");
-      return false;
-    } else {
-      setError("");
-    }
     if (
       userData.password === "" ||
       userData.password === undefined ||
@@ -125,6 +115,7 @@ export function Login() {
               }));
             }}
           />
+
           <div>
             <label for="" class="login-label">
               Password
@@ -148,6 +139,7 @@ export function Login() {
               <i className="fa-regular fa-eye"></i>
             </button>
           </div>
+          {passwordError && <p style={{ color: "red" }}>{passwordError}</p>}
           <button
             className="btn btn-login"
             onClick={(e) => onSubmitHandler(e)}

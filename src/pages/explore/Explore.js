@@ -1,4 +1,4 @@
-import { React, useEffect, useCallback } from "react";
+import { React } from "react";
 import { SideBar, VideoCard } from "../../components";
 import "./explore.css";
 import { useVideo } from "../../contexts/VideoProvider";
@@ -11,7 +11,6 @@ export function Explore() {
   const videosData = videoState.videos;
   const videos = getVideosByCategory(videosData, videoState.selectedCategory);
   const categories = videoState.categories;
-  const signup = videoState.signup;
 
   return (
     <div className="explore-page">
