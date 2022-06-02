@@ -25,16 +25,6 @@ export function SignUp() {
   const [error, setError] = useState("");
 
   const doValidate = () => {
-    if (
-      !/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(
-        userData.email
-      )
-    ) {
-      setError("Please enter a valid email address");
-      return false;
-    } else {
-      setError("");
-    }
     if (userData.password !== userData.confirmPassword) {
       setPasswordError("Password does not match!");
       return false;
@@ -136,7 +126,7 @@ export function SignUp() {
               }))
             }
           />
-          {error && <p style={{ color: "red" }}>{error}</p>}
+
           <div>
             <label for="" className="login-label">
               Password
