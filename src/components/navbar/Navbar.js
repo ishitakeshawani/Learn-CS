@@ -1,9 +1,12 @@
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts";
 import "./navbar.css";
 
 export function Navbar() {
+  const navigate = useNavigate();
   const [isMenuShow, setIsMenuShow] = useState(false);
+  const { isLoggedIn, logOut } = useAuth();
   const showMenu = () => {
     setIsMenuShow(true);
   };
@@ -39,8 +42,14 @@ export function Navbar() {
         <Link to="/history" className="link-no-style nav-link hide-icon">
           History
         </Link>
-        <Link to="/login" className="link-no-style nav-link">
-          Login
+        <Link
+          to={isLoggedIn === false && "/login"}
+          onClick={() => {
+            isLoggedIn ? logOut() : navigate("/login");
+          }}
+          className="link-no-style nav-link"
+        >
+          {isLoggedIn ? "Logout" : "Login"}
         </Link>
         <div className="closeMenu">
           <i className="fa fa-times" onClick={closeMenu}></i>
