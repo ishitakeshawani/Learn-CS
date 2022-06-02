@@ -43,8 +43,22 @@
   }
   .card-text-overlay {
     padding: 3rem 1rem;
+    width: 12rem;
   }
   .card-header-title {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    text-align:center;
+  }
+  .card {
+    width: 12rem;
+  }
+  .categories {
+    margin: 0 1rem;
+  }
+  .card-section {
+    width: 12rem;
+  }
+  .category-style{
+    font-size:0.9rem;
   }
 }

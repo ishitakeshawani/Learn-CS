@@ -22,9 +22,20 @@ export const addNewPlayList = async (playListName, playListDispatch) => {
       payload: playlists,
     });
   } catch (error) {
-    console.log(error);
-    const notify = () => toast(error.message);
-    notify();
+    if (error.response.status === 500) {
+      const notify = () => toast("Please do login!");
+      notify();
+    } else if (error.response.status === 404) {
+      const notify = () =>
+        toast("The email you entered is not Registered. Please do signup!");
+      notify();
+    } else if (error.response.status === 401) {
+      const notify = () => toast("The credentials you entered are invalid");
+      notify();
+    } else {
+      const notify = () => toast(error.message);
+      notify();
+    }
   }
 };
 
@@ -38,7 +49,20 @@ export const deletePlayList = async (playListId, playListDispatch) => {
       payload: playListId,
     });
   } catch (error) {
-    console.log(error);
+    if (error.response.status === 500) {
+      const notify = () => toast("Please do login!");
+      notify();
+    } else if (error.response.status === 404) {
+      const notify = () =>
+        toast("The email you entered is not Registered. Please do signup!");
+      notify();
+    } else if (error.response.status === 401) {
+      const notify = () => toast("The credentials you entered are invalid");
+      notify();
+    } else {
+      const notify = () => toast(error.message);
+      notify();
+    }
   }
 };
 
@@ -55,8 +79,21 @@ export const removeVideoFromPlayList = async (
       type: "REMOVE_video_from_playlist",
       payload: { playlistId, videoId },
     });
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    if (error.response.status === 500) {
+      const notify = () => toast("Please do login!");
+      notify();
+    } else if (error.response.status === 404) {
+      const notify = () =>
+        toast("The email you entered is not Registered. Please do signup!");
+      notify();
+    } else if (error.response.status === 401) {
+      const notify = () => toast("The credentials you entered are invalid");
+      notify();
+    } else {
+      const notify = () => toast(error.message);
+      notify();
+    }
   }
 };
 
@@ -84,7 +121,20 @@ export const addVideoToPlayList = async (
       payload: { video, playlistID },
     });
   } catch (error) {
-    console.log(error);
+    if (error.response.status === 500) {
+      const notify = () => toast("Please do login!");
+      notify();
+    } else if (error.response.status === 404) {
+      const notify = () =>
+        toast("The email you entered is not Registered. Please do signup!");
+      notify();
+    } else if (error.response.status === 401) {
+      const notify = () => toast("The credentials you entered are invalid");
+      notify();
+    } else {
+      const notify = () => toast(error.message);
+      notify();
+    }
   }
 };
 
@@ -114,8 +164,20 @@ export const addToWatchLater = async (video, playListDispatch) => {
       payload: watchlater,
     });
   } catch (error) {
-    const notify = () => toast(error.message);
-    notify();
+    if (error.response.status === 500) {
+      const notify = () => toast("Please do login!");
+      notify();
+    } else if (error.response.status === 404) {
+      const notify = () =>
+        toast("The email you entered is not Registered. Please do signup!");
+      notify();
+    } else if (error.response.status === 401) {
+      const notify = () => toast("The credentials you entered are invalid");
+      notify();
+    } else {
+      const notify = () => toast(error.message);
+      notify();
+    }
   }
 };
 
@@ -133,8 +195,20 @@ export const removeFromWatchLater = async (videoId, playListDispatch) => {
       payload: watchlater,
     });
   } catch (error) {
-    const notify = () => toast(error.message);
-    notify();
+    if (error.response.status === 500) {
+      const notify = () => toast("Please do login!");
+      notify();
+    } else if (error.response.status === 404) {
+      const notify = () =>
+        toast("The email you entered is not Registered. Please do signup!");
+      notify();
+    } else if (error.response.status === 401) {
+      const notify = () => toast("The credentials you entered are invalid");
+      notify();
+    } else {
+      const notify = () => toast(error.message);
+      notify();
+    }
   }
 };
 
@@ -154,9 +228,21 @@ export const addVideoToHistory = async (video, playListDispatch) => {
       type: "ADD_TO_HISTORY",
       payload: video,
     });
-    console.log(video);
   } catch (error) {
-    console.log(error);
+    if (error.response.status === 500) {
+      const notify = () => toast("Please do login!");
+      notify();
+    } else if (error.response.status === 404) {
+      const notify = () =>
+        toast("The email you entered is not Registered. Please do signup!");
+      notify();
+    } else if (error.response.status === 401) {
+      const notify = () => toast("The credentials you entered are invalid");
+      notify();
+    } else {
+      const notify = () => toast(error.message);
+      notify();
+    }
   }
 };
 
@@ -172,7 +258,20 @@ export const clearHistory = async (playListDispatch) => {
       payload: history,
     });
   } catch (error) {
-    console.log(error);
+    if (error.response.status === 500) {
+      const notify = () => toast("Please do login!");
+      notify();
+    } else if (error.response.status === 404) {
+      const notify = () =>
+        toast("The email you entered is not Registered. Please do signup!");
+      notify();
+    } else if (error.response.status === 401) {
+      const notify = () => toast("The credentials you entered are invalid");
+      notify();
+    } else {
+      const notify = () => toast(error.message);
+      notify();
+    }
   }
 };
 
@@ -186,6 +285,19 @@ export const removeVideoFromHistory = async (videoId, playListDispatch) => {
       payload: videoId,
     });
   } catch (error) {
-    console.log(error);
+    if (error.response.status === 500) {
+      const notify = () => toast("Please do login!");
+      notify();
+    } else if (error.response.status === 404) {
+      const notify = () =>
+        toast("The email you entered is not Registered. Please do signup!");
+      notify();
+    } else if (error.response.status === 401) {
+      const notify = () => toast("The credentials you entered are invalid");
+      notify();
+    } else {
+      const notify = () => toast(error.message);
+      notify();
+    }
   }
 };

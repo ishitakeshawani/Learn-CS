@@ -11,6 +11,13 @@
   width: 30%;
 }
 
+.password-icon {
+  cursor: pointer;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 1rem;
+}
+
 @media only screen and (max-width: 43rem) {
   .signup {
     width: 80%;
