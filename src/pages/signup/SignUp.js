@@ -22,8 +22,7 @@ export function SignUp() {
   const [type, setType] = useState("password");
   const [confirmPasswordType, setConfirmPasswordType] = useState("password");
   const [passwordError, setPasswordError] = useState("");
-  const [error, setError] = useState("");
-
+  
   const doValidate = () => {
     if (userData.password !== userData.confirmPassword) {
       setPasswordError("Password does not match!");
