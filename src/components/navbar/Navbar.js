@@ -15,7 +15,7 @@ export function Navbar() {
       <div className="openMenu">
         <i className="fa fa-bars" onClick={showMenu}></i>
       </div>
-      <Link className="nav-icon-link nav-link link-no-style hide-icon" to="/">
+      <Link className="nav-icon-link nav-link link-no-style hide" to="/">
         &lt;Learn CS /&gt;
       </Link>
 
@@ -27,10 +27,18 @@ export function Navbar() {
       </Link>
 
       <div className={isMenuShow ? "mainMenuShow" : "mainMenu"}>
+        <Link to="/watchlater" className="link-no-style nav-link hide-icon">
+          WatchLater
+        </Link>
+        <Link to="/playlists" className="link-no-style nav-link hide-icon">
+          Playlists
+        </Link>
+        <Link to="/history" className="link-no-style nav-link hide-icon">
+          History
+        </Link>
         <Link to="/login" className="link-no-style nav-link">
           Login
         </Link>
-
         <div className="closeMenu">
           <i className="fa fa-times" onClick={closeMenu}></i>
         </div>
