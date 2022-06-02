@@ -37,13 +37,13 @@ export function VideoCard({ video }) {
       : addToWatchLater(video, playListDispatch);
   };
   return (
-    <div className="card card-box-shadow">
-      <div className="card-section regular-font-weight" id="card-section">
+    <div className="card video-card card-box-shadow">
+      <div className="card-section video-card regular-font-weight" id="card-section">
         <Link to={`/video/${video._id}`} onClick={() => addVideoToHistory(video,playListDispatch)}>
           <img className="card-img" src={video.image} alt="thumbnail" />
         </Link>
         <div className="card-header">
-          <div className="card-header-title bold-font-weight">
+          <div className="card-header-title video-card-title bold-font-weight">
             {" "}
             {video.title}{" "}
           </div>

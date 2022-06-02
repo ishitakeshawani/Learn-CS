@@ -13,7 +13,7 @@ export function CategoryCard({ category }) {
           type: "SET_SELECTED_CATEGORY",
           payload: category.categoryName,
         });
-        navigate("/explore");
+        navigate("/explore")
       }}
     >
       <div className="card-section regular-font-weight" id="card-section">
