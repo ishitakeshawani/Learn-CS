@@ -5,8 +5,17 @@
 }
 
 .watch-later-videos-section{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display:flex;
+  flex-wrap:wrap;
   margin: 1rem 3rem;
   gap: 2rem;
+}
+
+@media only screen and (max-width: 158em) {
+  .watch-later {
+    margin: 0.1rem;
+  }
+  .header-name{
+    font-size:1.5rem;
+  }
 }

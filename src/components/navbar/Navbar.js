@@ -27,6 +27,9 @@ export function Navbar() {
       </Link>
 
       <div className={isMenuShow ? "mainMenuShow" : "mainMenu"}>
+        <Link to="/likedvideos" className="link-no-style nav-link hide-icon">
+          LikedVideos
+        </Link>
         <Link to="/watchlater" className="link-no-style nav-link hide-icon">
           WatchLater
         </Link>

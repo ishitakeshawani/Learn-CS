@@ -42,13 +42,14 @@ body {
 }
 
 .video-section {
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin: 1.5rem;
 }
 
 .video-list-section {
-  display:flex;
+  display: flex;
   gap: 1rem;
   row-gap: 2rem;
   flex-wrap: wrap;
