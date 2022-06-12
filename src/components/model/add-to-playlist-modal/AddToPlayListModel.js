@@ -1,14 +1,17 @@
-import { React } from "react";
+import { React, useState } from "react";
 import { usePlayList } from "../../../contexts/PlayListProvider";
 import {
   removeVideoFromPlayList,
   isVideoExistInPlayList,
   addVideoToPlayList,
+  addNewPlayList,
 } from "../../../utils";
 import "./addtoplaylistmodel.css";
 
-
 export function AddToPlayListModel({ setShowModal, videoId, video }) {
+  const [error, setError] = useState(false);
+  const [playListName, setPlayListName] = useState("");
+  const [showPlayListForm, setShowPlayListForm] = useState(false);
   const { playListState, playListDispatch } = usePlayList();
   const playLists = playListState.playLists;
   const playlistHandler = (videoId, playlistID, playLists, playlist) => {
@@ -22,6 +25,20 @@ export function AddToPlayListModel({ setShowModal, videoId, video }) {
       );
     } else {
       removeVideoFromPlayList(playlistID, videoId, playListDispatch);
+    }
+  };
+  const handleSubmit = () => {
+    if (playListName) {
+      setShowPlayListForm(false);
+      playListDispatch({
+        type: "ADD_NAME_OF_PLAYLIST",
+        payload: playListName,
+      });
+      addNewPlayList(playListName, playListDispatch);
+      setPlayListName("");
+      setError(false);
+    } else {
+      setError(true);
     }
   };
 
@@ -66,6 +83,42 @@ export function AddToPlayListModel({ setShowModal, videoId, video }) {
                 </label>
               </div>
             ))}
+          {!showPlayListForm ? (
+            <div
+              className="create-playlist-modal-section"
+              onClick={() => setShowPlayListForm(true)}
+            >
+              <i class="fa-thin fa-plus"></i>
+              <div className="create-playlist-btn-text">
+                Create a new playlist
+              </div>
+            </div>
+          ) : (
+            <div className="new-playlist-name-section-modal">
+              <label
+                htmlFor="name"
+                className="new-playlist-name-section-modal-label"
+              >
+                Name
+              </label>
+              <input
+                placeholder="Enter playlist name.."
+                type="text"
+                className="new-playlist-name-section-modal-input"
+                onChange={(e) => setPlayListName(e.target.value)}
+                required
+              />
+              {error && <div className="error-playlist-name">required</div>}
+              <button
+                className="create-playlist-btn-modal"
+                onClick={() => {
+                  handleSubmit();
+                }}
+              >
+                Create
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

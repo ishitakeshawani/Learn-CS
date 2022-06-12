@@ -39,13 +39,65 @@
   gap: 1rem;
 }
 
-.add-playlist-model-list-item{
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-    overflow: hidden;
+.add-playlist-model-list-item {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  overflow: hidden;
 }
 
-.add-playlist-model-header-name{
+.add-playlist-model-header-name {
   overflow: hidden;
+}
+
+.create-playlist-modal-section {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.fa-plus {
+  font-size: 2rem;
+  overflow: hidden;
+}
+
+.new-playlist-name-section-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.new-playlist-name-section-modal-label {
+  font-size: 0.9rem;
+  display: block;
+}
+
+.new-playlist-name-section-modal-input {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: var(--black);
+  font-size: 1rem;
+}
+
+.create-playlist-btn-modal {
+  background: transparent;
+  color: var(--blue-color);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+.error-playlist-name {
+  color: red;
+  font-size: 0.7rem;
+}
+
+@media only screen and (max-width: 68em) {
+  .add-playlist-model-content {
+    width: 70%;
+  }
 }
