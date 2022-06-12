@@ -50,13 +50,19 @@
   gap: 1rem;
 }
 
-.playlist-name{
-    font-size: 1.2rem;
-    font-weight: 400;
+.playlist-name {
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
-.create-playlist-input{
-    height: 2.7rem;
-    font-size: 1.1rem;
-    padding-inline: 1rem;
+.create-playlist-input {
+  height: 2.7rem;
+  font-size: 1.1rem;
+  padding-inline: 1rem;
+}
+
+@media only screen and (max-width: 68em) {
+  .playlist-model-content {
+    width: 70%;
+  }
 }

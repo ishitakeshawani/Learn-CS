@@ -5,7 +5,7 @@ import { addNewPlayList } from "../../../utils";
 
 export function PlayListModel({ setShowModel }) {
   const [playListName, setPlayListName] = useState("");
-  const { playListState, playListDispatch } = usePlayList();
+  const { playListDispatch } = usePlayList();
   const handleSubmit = () => {
     setShowModel(false);
     playListDispatch({
@@ -13,7 +13,6 @@ export function PlayListModel({ setShowModel }) {
       payload: playListName,
     });
     addNewPlayList(playListName, playListDispatch);
-    console.log(playListState.playLists, "ll");
   };
   return (
     <div className="playlist-model">
