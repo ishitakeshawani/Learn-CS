@@ -30,16 +30,32 @@ export function Navbar() {
       </Link>
 
       <div className={isMenuShow ? "mainMenuShow" : "mainMenu"}>
-        <Link to="/likedvideos" className="link-no-style nav-link hide-icon">
+        <Link
+          to="/likedvideos"
+          onClick={() => closeMenu()}
+          className="link-no-style nav-link hide-icon"
+        >
           LikedVideos
         </Link>
-        <Link to="/watchlater" className="link-no-style nav-link hide-icon">
+        <Link
+          to="/watchlater"
+          onClick={() => closeMenu()}
+          className="link-no-style nav-link hide-icon"
+        >
           WatchLater
         </Link>
-        <Link to="/playlists" className="link-no-style nav-link hide-icon">
+        <Link
+          to="/playlists"
+          onClick={() => closeMenu()}
+          className="link-no-style nav-link hide-icon"
+        >
           Playlists
         </Link>
-        <Link to="/history" className="link-no-style nav-link hide-icon">
+        <Link
+          to="/history"
+          onClick={() => closeMenu()}
+          className="link-no-style nav-link hide-icon"
+        >
           History
         </Link>
         <Link
