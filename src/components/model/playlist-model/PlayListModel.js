@@ -1,9 +1,10 @@
-import { React, useState } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import { usePlayList } from "../../../contexts/PlayListProvider";
 import "./playlistmodel.css";
 import { addNewPlayList } from "../../../utils";
 
 export function PlayListModel({ setShowModel }) {
+  const modalRef = useRef(null);
   const [playListName, setPlayListName] = useState("");
   const { playListDispatch } = usePlayList();
   const handleSubmit = () => {
@@ -14,9 +15,23 @@ export function PlayListModel({ setShowModel }) {
     });
     addNewPlayList(playListName, playListDispatch);
   };
+  const handleClickOutside = (event) => {
+    const path = event.path || (event.composedPath && event.composedPath());
+
+    if (!path.includes(modalRef.current)) {
+      setShowModel(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div className="playlist-model">
-      <div className="playlist-model-content">
+      <div className="playlist-model-content" ref={modalRef}>
         <div className="model-header">
           <div className="model-header-name">Create New Playlist</div>
           <i

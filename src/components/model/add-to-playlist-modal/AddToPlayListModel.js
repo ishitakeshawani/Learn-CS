@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import { usePlayList } from "../../../contexts/PlayListProvider";
 import {
   removeVideoFromPlayList,
@@ -8,7 +8,8 @@ import {
 } from "../../../utils";
 import "./addtoplaylistmodel.css";
 
-export function AddToPlayListModel({ setShowModal, videoId, video }) {
+export function AddToPlayListModel({ setShowModal, videoId, video, showModal }) {
+  const modalRef = useRef(null);
   const [error, setError] = useState(false);
   const [playListName, setPlayListName] = useState("");
   const [showPlayListForm, setShowPlayListForm] = useState(false);
@@ -42,9 +43,25 @@ export function AddToPlayListModel({ setShowModal, videoId, video }) {
     }
   };
 
+  const handleClickOutside = (event) => {
+    const path = event.path || (event.composedPath && event.composedPath());
+
+    if (!path.includes(modalRef.current)) {
+      setShowModal(!showModal);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <div className="add-playlist-model">
-      <div className="add-playlist-model-content">
+      <div className="add-playlist-model-content" ref={modalRef}>
         <div className="add-playlist-model-header">
           <div className="add-playlist-model-header-name">Save to</div>
           <i

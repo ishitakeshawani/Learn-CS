@@ -78,6 +78,7 @@ export function VideoCard({ video }) {
           {showModal && (
             <AddToPlayListModel
               setShowModal={setShowModal}
+              showModal={showModal}
               videoId={video._id}
               video={video}
             />
