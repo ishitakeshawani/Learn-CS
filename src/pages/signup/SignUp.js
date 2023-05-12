@@ -20,9 +20,13 @@ export function SignUp() {
   const { setIsLoggedIn } = useAuth();
   const { playListDispatch } = usePlayList();
   const [type, setType] = useState("password");
+  const [openeye, setCloseeye] = useState("fa-regular fa-eye password-icon");
   const [confirmPasswordType, setConfirmPasswordType] = useState("password");
+  const [openeyeconfirm, setCloseeyeconfirm] = useState(
+    "fa-regular fa-eye password-icon"
+  );
   const [passwordError, setPasswordError] = useState("");
-  
+
   const doValidate = () => {
     if (userData.password !== userData.confirmPassword) {
       setPasswordError("Password does not match!");
@@ -147,10 +151,16 @@ export function SignUp() {
             />
             <button className="login-icon button-style-none">
               <i
-                className="fa-regular fa-eye password-icon"
+                className={openeye}
                 onClick={(e) => {
                   e.preventDefault();
-                  setType("text");
+                  if (type === "password") {
+                    setType("text");
+                    setCloseeye("fa-regular fa-eye-slash password-icon");
+                  } else {
+                    setType("password");
+                    setCloseeye("fa-regular fa-eye password-icon");
+                  }
                 }}
               ></i>
             </button>
@@ -177,10 +187,16 @@ export function SignUp() {
             />
             <button className="login-icon button-style-none">
               <i
-                className="fa-regular fa-eye password-icon"
+                className={openeyeconfirm}
                 onClick={(e) => {
                   e.preventDefault();
-                  setConfirmPasswordType("text");
+                  if (confirmPasswordType === "password") {
+                    setConfirmPasswordType("text");
+                    setCloseeyeconfirm("fa-regular fa-eye-slash password-icon");
+                  } else {
+                    setConfirmPasswordType("password");
+                    setCloseeyeconfirm("fa-regular fa-eye password-icon");
+                  }
                 }}
               ></i>
             </button>
