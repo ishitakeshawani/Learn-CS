@@ -91,6 +91,8 @@ body {
   }
   .video-list-section {
     display: flex;
-    flex-wrap: nowrap;
+    gap: 3rem;
+    row-gap: 2.5rem;
+    margin-left: 2rem;
   }
 }
